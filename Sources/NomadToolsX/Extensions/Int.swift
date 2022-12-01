@@ -82,6 +82,6 @@ public extension Int {
 
 // MARK: - Int64
 public extension Int64 {
-    public var int: Int
+    var int: Int
     { Int(self) }
 }
