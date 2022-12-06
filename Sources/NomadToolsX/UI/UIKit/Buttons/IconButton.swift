@@ -13,9 +13,10 @@ import Cartography
 
 open class IconButton: NomadView {
     
-    lazy var row: Row = Row([.distribution(.fillProportionally), .alignment(.center), .spacing(10)])
+    lazy var row: Row = Row([.distribution(.fill), .alignment(.center), .spacing(10)])
     public lazy var icon: ImageView = ImageView()
     public lazy var header: Header = Header([.font(.Bold, size: 16), .resize(true), .numberOfLines(1), .textAlignment(.center)])
+    public lazy var blank: BlankView = BlankView([.backgroundColor(.clear)])
     
     private var height: NSLayoutConstraint!
     private var image: Image!
@@ -45,10 +46,11 @@ open class IconButton: NomadView {
         
         row.addArrangedSubview(icon)
         row.addArrangedSubview(header)
+        row.addArrangedSubview(blank)
         
         add(row)
-        constrain(row, icon, header)
-        { row, icon, header in
+        constrain(row, icon, header, blank)
+        { row, icon, header, blank in
             let superview = row.superview!
             row.top == superview.top + 5
             row.centerY == superview.centerY
@@ -59,6 +61,9 @@ open class IconButton: NomadView {
             header.centerY == icon.centerY
             header.height == superview.height
             icon.centerY == superview.centerY
+            
+            blank.height == icon.height
+            blank.width == icon.width
             
             switch alignment {
             case .left, .right:

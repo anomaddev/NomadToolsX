@@ -82,6 +82,9 @@ final public class Nomad {
         }
     }
     
+    // MARK: Utilities
+
+    
     // MARK: Internals
     public enum BuzzType: Int {
         case error = 0
