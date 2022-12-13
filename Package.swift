@@ -22,6 +22,8 @@ let package = Package(
         .package(url: "https://github.com/malcommac/SwiftDate", .upToNextMajor(from: "7.0.0")),
         .package(url: "https://github.com/ninjaprox/NVActivityIndicatorView.git", .upToNextMajor(from: "5.0.0")),
         .package(url: "https://github.com/fahidattique55/FAPanels.git", .upToNextMajor(from: "2.0.0")),
+        .package(url: "https://github.com/Skyscanner/SkyFloatingLabelTextField.git", .upToNextMajor(from: "4.0.0")),
+        .package(url: "https://github.com/Yummypets/YPImagePicker.git", .upToNextMajor(from: "5.0.0"))
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -33,8 +35,11 @@ let package = Package(
                 .product(name: "Cartography", package: "Cartography"),
                 .product(name: "SwiftDate", package: "SwiftDate"),
                 .product(name: "NVActivityIndicatorView", package: "NVActivityIndicatorView"),
-                .product(name: "FAPanels", package: "FAPanels")
-            ]),
+                .product(name: "FAPanels", package: "FAPanels"),
+                .product(name: "SkyFloatingLabelTextField", package: "SkyFloatingLabelTextField"),
+                .product(name: "YPImagePicker", package: "YPImagePicker")
+            ]
+        ),
         .testTarget(
             name: "NomadToolsXTests",
             dependencies: ["NomadToolsX"]),
