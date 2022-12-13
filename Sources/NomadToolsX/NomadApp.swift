@@ -40,7 +40,7 @@ open class NomadApp: UIResponder, UIApplicationDelegate {
         return i
     }()
     
-    open func run() throws {
+    open func run(options: [UIApplication.LaunchOptionsKey: Any]? = nil, on application: UIApplication) throws {
         if NomadApp.isDebugging { debugging() }
     }
     
@@ -72,7 +72,7 @@ open class NomadApp: UIResponder, UIApplicationDelegate {
 //                didFinishLaunchingWithOptions: launchOptions
 //            )
             
-            try run()
+            try run(options: launchOptions, on: application)
             return true
         } catch { fatalError() } // THROW:
     }
