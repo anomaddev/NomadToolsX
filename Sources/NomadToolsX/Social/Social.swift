@@ -10,6 +10,7 @@ import UIKit
 public enum Social: String {
     
     case apple
+    case gamecenter
     case google
     
     case facebook
@@ -24,8 +25,9 @@ public enum Social: String {
     public var color: UIColor {
         switch self {
         case .facebook: return UIColor("#3b5998")
+        case .gamecenter: return .white
         case .apple: return .black
-        case .google: return .background
+        case .google: return UIColor("#f7f7f7")
         default: return .black
         }
     }
@@ -33,8 +35,9 @@ public enum Social: String {
     public var onColor: UIColor {
         switch self {
         case .facebook: return UIColor("#f7f7f7")
+        case .gamecenter: return .black
         case .apple: return .white
-        case .google: return .onBackground
+        case .google: return .black
         default: return .black
         }
     }

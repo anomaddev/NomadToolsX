@@ -1,5 +1,5 @@
 //
-//  Errors.swift
+//  NomadErrors.swift
 //  
 //
 //  Created by Justin Ackermann on 12/12/22.
