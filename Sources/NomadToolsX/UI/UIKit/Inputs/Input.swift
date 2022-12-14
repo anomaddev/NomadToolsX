@@ -132,14 +132,14 @@ open class TitledInput: NomadView {
         { title, input in
             let superview = title.superview!
             
-            title.top == superview.top
-            _centered = title.left == superview.left + 15
-            title.centerX == superview.centerX
+            title.top ~== superview.top
+            _centered = title.left ~== superview.left + 15
+            title.centerX ~== superview.centerX
             
-            input.top == title.bottom + 7.5
-            input.left == superview.left
-            input.right == superview.right
-            input.bottom == superview.bottom
+            input.top ~== title.bottom + 7.5
+            input.left ~== superview.left
+            input.right ~== superview.right
+            input.bottom ~== superview.bottom
         }
         
         self.setAttributes(attributes)

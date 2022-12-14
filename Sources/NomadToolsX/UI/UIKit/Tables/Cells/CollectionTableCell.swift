@@ -48,17 +48,17 @@ class CollectionTableCell: TableCell {
         { header, seeall, collection in
             let superview = collection.superview!
             
-            header.top == superview.top + 10
-            header.left == superview.left + 15
+            header.top ~== superview.top + 10
+            header.left ~== superview.left + 15
         
-            seeall.right == superview.right - 15
-            seeall.centerY == header.centerY
+            seeall.right ~== superview.right - 15
+            seeall.centerY ~== header.centerY
             
-            collection.top == header.bottom + 15
-            collection.left == superview.left
-            collection.right == superview.right
-            collection.bottom == superview.bottom - 10
-            collection.height == 200
+            collection.top ~== header.bottom + 15
+            collection.left ~== superview.left
+            collection.right ~== superview.right
+            collection.bottom ~== superview.bottom - 10
+            collection.height ~== 200
         }
         
         sendSubviewToBack(contentView)

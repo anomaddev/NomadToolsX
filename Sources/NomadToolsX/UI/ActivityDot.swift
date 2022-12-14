@@ -34,9 +34,9 @@ open class ActivityDot: UIView {
         constrain(ping)
         { ping in
             let superview = ping.superview!
-            ping.center == superview.center
-            ping.height == 80
-            ping.width == ping.height
+            ping.center ~== superview.center
+            ping.height ~== 80
+            ping.width ~== ping.height
         }
     }
     

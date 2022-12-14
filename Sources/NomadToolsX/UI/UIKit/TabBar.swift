@@ -43,12 +43,12 @@ open class TabBar: UIView {
         constrain(tab, indicator)
         { tab, indicator in
             let superview = tab.superview!
-            tab.top == superview.top
-            tab.left == superview.left
-            tab.center == superview.center
-            tab.bottom == superview.bottom - 10
+            tab.top ~== superview.top
+            tab.left ~== superview.left
+            tab.center ~== superview.center
+            tab.bottom ~== superview.bottom - 10
             
-            indicator.top == tab.bottom
+            indicator.top ~== tab.bottom
         }
     }
     
@@ -80,7 +80,7 @@ open class TabBar: UIView {
         
         UIView.animate(withDuration: animated ? 0.3 : 0.001, delay: 0, options: .curveEaseInOut, animations: {
             constrain(view, self.indicator, replace: self._offset)
-            { view, indicator in indicator.centerX == view.centerX }
+            { view, indicator in indicator.centerX ~== view.centerX }
             self.layoutIfNeeded()
         }) { _ in self.delegate?.didTab(to: self.tabs[index], at: index) }
     }

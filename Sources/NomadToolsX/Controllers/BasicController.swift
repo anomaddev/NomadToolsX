@@ -76,10 +76,10 @@ open class BasicController: UIViewController, UITextFieldDelegate {
         constrain(activitydot)
         { view in
             let superview = view.superview!
-            activityoffset = view.centerY == superview.centerY - 40
-            view.centerX == superview.centerX
-            view.height == 80
-            view.width == view.height
+            activityoffset = view.centerY ~== superview.centerY - 40
+            view.centerX ~== superview.centerX
+            view.height ~== 80
+            view.width ~== view.height
         }
         
         view.layoutIfNeeded()

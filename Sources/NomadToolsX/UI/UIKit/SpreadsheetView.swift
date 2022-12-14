@@ -60,21 +60,21 @@ public class SpreadsheetView: UIView {
         constrain(header, sheet, footer)
         { header, sheet, footer in
             let superview = sheet.superview!
-            header.top == superview.top
-            header.width == superview.width
-            header.centerX == superview.centerX
-            header.height == delegate?.heightForHeaderView(self) ?? 0
+            header.top ~== superview.top
+            header.width ~== superview.width
+            header.centerX ~== superview.centerX
+            header.height ~== delegate?.heightForHeaderView(self) ?? 0
             
-            sheet.top == header.bottom - 2
-            sheet.left == superview.left
-            sheet.right == superview.right
+            sheet.top ~== header.bottom - 2
+            sheet.left ~== superview.left
+            sheet.right ~== superview.right
             
-            footer.top == sheet.bottom
-            footer.width == superview.width
-            footer.centerX == superview.centerX
-            footer.height == delegate?.heightForFooterView(self) ?? 0
+            footer.top ~== sheet.bottom
+            footer.width ~== superview.width
+            footer.centerX ~== superview.centerX
+            footer.height ~== delegate?.heightForFooterView(self) ?? 0
             
-            footer.bottom == superview.bottom
+            footer.bottom ~== superview.bottom
         }
         
         guard let columns = delegate?.numberOfColumns(self), columns > 0
@@ -139,9 +139,9 @@ public class SpreadsheetCell: UITableViewCell {
         constrain(value)
         { value in
             let superview = value.superview!
-            value.top == superview.top - 1
-            value.left == superview.left
-            value.center == superview.center
+            value.top ~== superview.top - 1
+            value.left ~== superview.left
+            value.center ~== superview.center
         }
     }
 }

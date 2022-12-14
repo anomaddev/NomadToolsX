@@ -52,26 +52,26 @@ open class IconButton: NomadView {
         constrain(row, icon, header, blank)
         { row, icon, header, blank in
             let superview = row.superview!
-            row.top == superview.top + 5
-            row.centerY == superview.centerY
+            row.top ~== superview.top + 5
+            row.centerY ~== superview.centerY
             
-            height = icon.height == superview.height / 2
-            icon.width == icon.height
+            height = icon.height ~== superview.height / 2
+            icon.width ~== icon.height
             
-            header.centerY == icon.centerY
-            header.height == superview.height
-            icon.centerY == superview.centerY
+            header.centerY ~== icon.centerY
+            header.height ~== superview.height
+            icon.centerY ~== superview.centerY
             
-            blank.height == icon.height
-            blank.width == icon.width
+            blank.height ~== icon.height
+            blank.width ~== icon.width
             
             switch alignment {
             case .left, .right:
-                row.left == superview.left + 15
-                row.right == superview.right - 15
+                row.left ~== superview.left + 15
+                row.right ~== superview.right - 15
                 
             case .center:
-                row.centerX == superview.centerX
+                row.centerX ~== superview.centerX
                 
             default: break
             }

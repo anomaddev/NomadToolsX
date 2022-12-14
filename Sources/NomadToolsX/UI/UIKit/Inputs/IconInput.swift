@@ -42,10 +42,10 @@ open class IconInput: UITextField, Attributed {
         constrain(icon)
         { icon in
             let superview = icon.superview!
-            _offset2 = icon.left == superview.left + 12.5
-            _offset = icon.top == superview.top + 12.5
-            icon.centerY == superview.centerY
-            icon.width == icon.height
+            _offset2 = icon.left ~== superview.left + 12.5
+            _offset = icon.top ~== superview.top + 12.5
+            icon.centerY ~== superview.centerY
+            icon.width ~== icon.height
         }
         
         self.setAttributes(attributes)

@@ -36,12 +36,12 @@ open class HeaderFooterView: UITableViewHeaderFooterView {
         constrain(self.text, self.subtext)
         { text, sub in
             let superview = text.superview!
-            text.left == superview.left + 15
-            text.centerY == superview.centerY
-            text.top == superview.top + 10
+            text.left ~== superview.left + 15
+            text.centerY ~== superview.centerY
+            text.top ~== superview.top + 10
             
-            sub.right == superview.right - 15
-            sub.centerY == superview.centerY
+            sub.right ~== superview.right - 15
+            sub.centerY ~== superview.centerY
         }
     }
 }

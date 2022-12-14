@@ -59,10 +59,10 @@ open class TitleDetail: UIView {
         { column, title, detail in
             let superview = column.superview!
             
-            column.top == superview.top
-            column.left == superview.left
-            column.right == superview.right
-            column.bottom == superview.bottom
+            column.top ~== superview.top
+            column.left ~== superview.left
+            column.right ~== superview.right
+            column.bottom ~== superview.bottom
         }
     }
     

@@ -55,10 +55,10 @@ open class Separator: UIView {
         constrain(line)
         { line in
             let superview = line.superview!
-            line.left == superview.left + padding.left
-            line.top == superview.top + padding.top
-            line.right == superview.right - padding.right
-            line.bottom == superview.bottom - padding.bottom
+            line.left ~== superview.left + padding.left
+            line.top ~== superview.top + padding.top
+            line.right ~== superview.right - padding.right
+            line.bottom ~== superview.bottom - padding.bottom
         }
         layoutIfNeeded()
     }}
@@ -71,10 +71,10 @@ open class Separator: UIView {
         constrain(line)
         { line in
             let superview = line.superview!
-            line.left == superview.left + padding.left
-            line.top == superview.top + padding.top
-            line.right == superview.right - padding.right
-            line.bottom == superview.bottom - padding.bottom
+            line.left ~== superview.left + padding.left
+            line.top ~== superview.top + padding.top
+            line.right ~== superview.right - padding.right
+            line.bottom ~== superview.bottom - padding.bottom
         }
     }
     

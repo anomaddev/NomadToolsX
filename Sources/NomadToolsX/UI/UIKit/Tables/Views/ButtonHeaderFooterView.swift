@@ -52,10 +52,10 @@ open class ButtonHeaderFooterView: HeaderFooterView {
         constrain(button)
         { button in
             let superview = button.superview!
-            button.top == superview.top + padding.top
-            button.left == superview.left + padding.left
-            button.right == superview.right - padding.right
-            button.bottom == superview.bottom - padding.bottom
+            button.top ~== superview.top + padding.top
+            button.left ~== superview.left + padding.left
+            button.right ~== superview.right - padding.right
+            button.bottom ~== superview.bottom - padding.bottom
         }
         
         layoutIfNeeded()

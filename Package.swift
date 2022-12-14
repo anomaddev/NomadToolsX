@@ -18,7 +18,7 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
         .package(url: "https://github.com/yeahdongcn/UIColor-Hex-Swift", .upToNextMajor(from: "5.0.0")),
-        .package(url: "https://github.com/robb/Cartography.git", .upToNextMajor(from: "4.0.0")),
+        .package(url: "https://github.com/anomaddev/Cartography.git", .upToNextMajor(from: "4.0.0")),
         .package(url: "https://github.com/malcommac/SwiftDate", .upToNextMajor(from: "7.0.0")),
         .package(url: "https://github.com/ninjaprox/NVActivityIndicatorView.git", .upToNextMajor(from: "5.0.0")),
         .package(url: "https://github.com/fahidattique55/FAPanels.git", .upToNextMajor(from: "2.0.0")),

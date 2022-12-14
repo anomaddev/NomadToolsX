@@ -32,9 +32,9 @@ open class RadioButtons: UIView {
         constrain(column)
         { col in
             let superview = col.superview!
-            col.top == superview.top
-            col.left == superview.left
-            col.center == superview.center
+            col.top ~== superview.top
+            col.left ~== superview.left
+            col.center ~== superview.center
         }
         
         self.active = index
@@ -106,9 +106,9 @@ open class RadioButton: UIView {
         constrain(row)
         { row in
             let superview = row.superview!
-            row.top == superview.top
-            row.left == superview.left + 15
-            row.center == superview.center
+            row.top ~== superview.top
+            row.left ~== superview.left + 15
+            row.center ~== superview.center
         }
     }
     

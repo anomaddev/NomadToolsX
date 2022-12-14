@@ -109,11 +109,11 @@ open class RoundIconView: RoundView {
         { icon in
             let superview = icon.superview!
             
-            iconHeight = icon.height == iconSize.height
-            iconWidth = icon.width == iconSize.width
-            icon.center == superview.center
+            iconHeight = icon.height ~== iconSize.height
+            iconWidth = icon.width ~== iconSize.width
+            icon.center ~== superview.center
             
-            superview.width == superview.height
+            superview.width ~== superview.height
         }
         
         layoutIfNeeded()
