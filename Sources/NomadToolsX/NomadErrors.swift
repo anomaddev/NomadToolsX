@@ -9,6 +9,7 @@ import Foundation
 
 public extension Error {
     func whatsthiserror() {
+        print("===============================")
         do { throw self }
         catch let error as DecodingError {
             switch error {
@@ -23,10 +24,10 @@ public extension Error {
             default:
                 print("ERROR: \(error.localizedDescription)")
             }
-            print()
         } catch {
             print(error.localizedDescription)
-            print()
         }
+        print("===============================")
+        print()
     }
 }

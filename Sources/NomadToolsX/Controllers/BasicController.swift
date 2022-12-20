@@ -163,7 +163,7 @@ open class BasicController: UIViewController, UITextFieldDelegate {
 //    /// Tells the delegate an ad request failed.
 //    func adView(_ bannerView: GADBannerView,
 //                didFailToReceiveAdWithError error: GADRequestError) {
-//        print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+//        print("adView:didFailToReceiveAdWithError: \(error.whatsthiserror())")
 //    }
 //
 //    /// Tells the delegate that a full-screen view will be presented in response
