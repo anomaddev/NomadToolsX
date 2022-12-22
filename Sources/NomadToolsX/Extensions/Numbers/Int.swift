@@ -85,3 +85,9 @@ public extension Int64 {
     var int: Int
     { Int(self) }
 }
+
+// MARK: UInt
+public extension UInt {
+    var int: Int
+    { Int(self) }
+}
