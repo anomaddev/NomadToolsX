@@ -7,7 +7,7 @@
 
 import UIKit
 
-public enum Social: String {
+public enum Social: String, Codable {
     
     case apple
     case gamecenter
@@ -21,6 +21,22 @@ public enum Social: String {
     case lyft
     
     case wikipedia
+    
+    public init?(providerId: String) {
+        switch providerId {
+        case "google.com": self = .google
+        case "facebook.com": self = .facebook
+        case "apple.com": self = .apple
+        default: return nil
+        }
+    }
+    
+    public var label: String {
+        switch self {
+        case .gamecenter: return "Game Center"
+        default: return rawValue.capitalized
+        }
+    }
     
     public var color: UIColor {
         switch self {
