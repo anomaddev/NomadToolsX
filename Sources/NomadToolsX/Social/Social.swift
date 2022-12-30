@@ -31,6 +31,45 @@ public enum Social: String, Codable {
         }
     }
     
+    public init?(providerIndex: Int) {
+        switch providerIndex {
+        case 0: self = .apple
+        case 1: self = .gamecenter
+        case 2: self = .google
+        case 3: self = .facebook
+        case 4: self = .twitter
+        case 5: self = .instagram
+        case 6: self = .uber
+        case 7: self = .lyft
+        case 8: self = .wikipedia
+        default: return nil
+        }
+    }
+    
+    public var providerIndex: Int? {
+        switch self {
+        case .apple: return 0
+        case .gamecenter: return 1
+        case .google: return 2
+        case .facebook: return 3
+        case .twitter: return 4
+        case .instagram: return 5
+        case .uber: return 6
+        case .lyft: return 7
+        case .wikipedia: return 8
+        default: return nil
+        }
+    }
+    
+    public var firebaseAuthId: String? {
+        switch self {
+        case .google: return "google.com"
+        case .facebook: return "facebook.com"
+        case .apple: return "apple.com"
+        default: return nil
+        }
+    }
+    
     public var label: String {
         switch self {
         case .gamecenter: return "Game Center"
