@@ -24,6 +24,22 @@ public extension UIView {
     }
     
     /// Style
+    func lockLight() {
+        for view in subviews {
+            if let text = view as? UILabel {
+                text.overrideUserInterfaceStyle = .light
+            }
+        }
+    }
+    
+    func lockDark() {
+        for view in subviews {
+            if let text = view as? UILabel {
+                text.overrideUserInterfaceStyle = .dark
+            }
+        }
+    }
+    
     func addShadow(offset: CGSize! = CGSize(width: 1.0, height: 1.0),
                           color: UIColor! = .black,
                           radius: CGFloat! = 2.0,
