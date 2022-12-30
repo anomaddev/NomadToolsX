@@ -84,6 +84,8 @@ open class NomadApp: UIResponder, UIApplicationDelegate {
         rootNav.isNavigationBarHidden = true
         
         window = UIWindow(frame: UIScreen.main.bounds)
+        window!.overrideUserInterfaceStyle = .light
+        
         if let window = window {
             window.rootViewController = rootNav
             

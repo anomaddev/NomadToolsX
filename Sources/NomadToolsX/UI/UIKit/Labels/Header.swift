@@ -28,6 +28,7 @@ public class Header: UILabel, Attributed {
                 height: CGFloat? = nil,
                 width: CGFloat? = nil) {
         super.init(frame: .zero)
+        overrideUserInterfaceStyle = .light
         setAttributes(defaultAttributes)
         
         var font: Font! = .Bold
