@@ -79,6 +79,18 @@ public extension UIView {
         self.layer.add(animation, forKey: "shake_view")
     }
     
+    func fadeOut(with duration: Double! = 0.25) {
+        UIView.animate(withDuration: duration, animations: {
+            self.alpha = 0
+        })
+    }
+    
+    func fadeIn(with duration: Double! = 0.4) {
+        UIView.animate(withDuration: duration, animations: {
+            self.alpha = 1
+        })
+    }
+    
     /// Constraints
     @discardableResult
     func constrainHeight(_ constant: CGFloat) -> AnchoredConstraints {
