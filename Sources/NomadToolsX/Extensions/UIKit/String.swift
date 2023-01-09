@@ -32,6 +32,8 @@ public extension String {
         return emailPred.evaluate(with: self)
     }
     
+    // TODO: Check Username
+    
     /// number
     var int: Int?
     { Int(self) }
