@@ -100,8 +100,8 @@ open class IconButton: NomadView {
                 
             case .text(let str): text = str
             case .textColor(let clr): header.textColor = clr
-            case .font(let font, let size):
-                header.font = font.getFont(size: size)
+            case .font(let font, let size, let alt):
+                header.font = font.getFont(size: size, alternative: alt)
             default: break
             }
         }

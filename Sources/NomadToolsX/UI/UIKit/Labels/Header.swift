@@ -74,7 +74,7 @@ public class Header: UILabel, Attributed {
             case .textColor(let color):         textColor = color
             case .textAlignment(let alignment): textAlignment = alignment
             case .minimumTextScale(let scale):  minimumScaleFactor = scale
-            case .font(let ft, let size):       font = ft.getFont(size: size)
+            case .font(let ft, let size, let alt):       font = ft.getFont(size: size, alternative: alt)
             case .resize(let shouldSize):       adjustsFontSizeToFitWidth = shouldSize
             case .numberOfLines(let num):       numberOfLines = num
             case .padding(let top, let right, let bottom, let left):

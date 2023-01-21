@@ -33,8 +33,8 @@ open class Button: UIButton, Attributed {
         setView(attributes)
         attributes.forEach {
             switch $0 {
-            case .font(let font, let size):
-                titleLabel?.font = font.getFont(size: size)
+            case .font(let font, let size, let alt):
+                titleLabel?.font = font.getFont(size: size, alternative: alt)
                 
             case .text(let txt): setTitle(txt, for: .normal)
             case .selectedText(let txt): setTitle(txt, for: .selected)

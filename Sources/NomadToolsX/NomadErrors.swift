@@ -26,6 +26,7 @@ public extension Error {
             }
         } catch {
             print(error.localizedDescription)
+            print((error as? NSError)?.code)
         }
         print("===============================")
         print()

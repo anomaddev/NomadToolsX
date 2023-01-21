@@ -46,7 +46,7 @@ final public class Nomad {
     
     // Init
     private init() {
-        Font.loadFonts()
+        
     }
     
     // Haptic

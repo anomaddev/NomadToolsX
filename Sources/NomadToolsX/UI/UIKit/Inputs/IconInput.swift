@@ -81,7 +81,7 @@ open class IconInput: UITextField, Attributed {
             case .text(let txt): text = txt
             case .textColor(let color): textColor = color
             case .textAlignment(let align): textAlignment = align
-            case .font(let f, size: let s): font = f.getFont(size: s)
+            case .font(let f, size: let s, let alt): font = f.getFont(size: s, alternative: alt)
             case .keyboard(let type): keyboardType = type
             case .autocorrection(let auto): autocorrectionType = auto
             case .capitalization(let cap): autocapitalizationType = cap

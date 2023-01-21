@@ -11,31 +11,40 @@ public enum FontFamily: String, CaseIterable {
     
     case HelveticaNeue
     case PTSans
+    case Raleway
     
-    public var value: [String] {
-        switch self {
-        case .PTSans:
-            return [
-                "PTSans-Regular",
-                "PTSans-Italic",
-                "PTSans-Bold",
-                "PTSans-BoldItalic"
-            ]
-            
-        default:
-            /// register system fonts
-            return [
-                "HelveticaNeue",
-                "HelveticaNeue-Thin",
-                "HelveticaNeue-Light",
-                "HelveticaNeue-Medium",
-                "HelveticaNeue-Bold"
-            ]
-        }
-    }
 }
+//    public var value: [String] {
+//        switch self {
+//        case .PTSans:
+//            return [
+//                "PTSans-Regular",
+//                "PTSans-Italic",
+//                "PTSans-Bold",
+//                "PTSans-BoldItalic"
+//            ]
+//
+//        case .Raleway:
+//            return [
+//                "Raleway-Regular",
+//                "Raleway-Bold",
+//                "Raleway-Medium",
+//                "Raleway-Thin",
+//                "Raleway-Light"
+//            ]
+//
+//        default:
+//            /// register system fonts
+//            return [
+//                "HelveticaNeue",
+//                "HelveticaNeue-Thin",
+//                "HelveticaNeue-Light",
+//                "HelveticaNeue-Medium",
+//                "HelveticaNeue-Bold"
+//            ]
+//        }
 
-public enum Font {
+public enum Font: String, CaseIterable {
     
     public static var Key: NSAttributedString.Key = .font
     public static var Strikethrough: NSAttributedString.Key = .strikethroughStyle
@@ -56,61 +65,69 @@ public enum Font {
     case Italic
     case SemiBold
     case SemiBoldItalic
+    case ThinItalic
+    case MediumItalic
+    case ExtraBoldItalic
+    case ExtraBold
     
     public func getFont(size: CGFloat? = 14,
                         alternative: Bool! = false) -> UIFont
     {
         guard let size = size else { return UIFont(name: "HelveticaNeue", size: 14)! }
         let fontFamily = alternative ? Nomad.theme.altFontFamily : Nomad.theme.fontFamily
-        
-        switch fontFamily {
-        case .HelveticaNeue:
-            switch self {
-            case .Default:  return UIFont(name: "HelveticaNeue", size: size)!
-            case .Thin:     return UIFont(name: "HelveticaNeue-Thin", size: size)!
-            case .Light:    return UIFont(name: "HelveticaNeue-Light", size: size)!
-            case .Medium:   return UIFont(name: "HelveticaNeue-Medium", size: size)!
-            case .Bold:     return UIFont(name: "HelveticaNeue-Bold", size: size)!
-                
-            default:        return UIFont(name: "HelveticaNeue", size: size)!
-            }
-            
-        case .PTSans:
-            switch self {
-            case .Default:  return UIFont(name: "PTSans-Regular", size: size)!
-            case .Italic:   return UIFont(name: "PTSans-Italic", size: size)!
-            case .Bold:     return UIFont(name: "PTSans-Bold", size: size)!
-            case .BoldItalic: return UIFont(name: "PTSans-BoldItalic", size: size)!
-                
-            default:        return UIFont(name: "PTSans-Regular", size: size)!
-            }
-        }
+        let thefont = "\(fontFamily.rawValue)-\(self.rawValue)"
+        guard let font = UIFont(name: thefont, size: size)
+        else { fatalError("You are trying to load an invalid font") }
+        return font
     }
+//        switch fontFamily {
+//        case .HelveticaNeue:
+//            switch self {
+//            case .Thin:     return UIFont(name: "HelveticaNeue-Thin", size: size)!
+//            case .Light:    return UIFont(name: "HelveticaNeue-Light", size: size)!
+//            case .Medium:   return UIFont(name: "HelveticaNeue-Medium", size: size)!
+//            case .Bold:     return UIFont(name: "HelveticaNeue-Bold", size: size)!
+//
+//            default:        return UIFont(name: "HelveticaNeue", size: size)!
+//            }
+//
+//        case .PTSans:
+//            switch self {
+//            case .Italic:   return UIFont(name: "PTSans-Italic", size: size)!
+//            case .Bold:     return UIFont(name: "PTSans-Bold", size: size)!
+//            case .BoldItalic: return UIFont(name: "PTSans-BoldItalic", size: size)!
+//
+//            default:        return UIFont(name: "PTSans-Regular", size: size)!
+//            }
+//
+//        case .Raleway:
+//            switch self {
+//            case .Bold:     return UIFont(name: "Raleway-Bold", size: size)!
+//            case .BoldItalic: return UIFont(name: "Raleway-BoldItalic", size)!
+//            default:        return UIFont(name: "Raleway-Regular", size: size)!
+//            }
+//        }
+//    }
     
-    public static var loadFonts: () -> Void = {
-        let fontNames = FontFamily
-            .allCases
+    public static func loadFonts(active: [FontFamily]! = FontFamily.allCases) {
+        let fontNames = active
             .filter {
                 $0 != .HelveticaNeue
                 /// accounting for system fonts not in Nomad bundle
             }
-            .map { $0.value }
+            .map { name in Font.allCases.map { "\(name.rawValue)-\($0.rawValue)" }}
             .reduce([], +)
         for fontName in fontNames
-        { loadFont(withName: fontName) }
-        return {}
-    }()
+        { try? loadFont(withName: fontName) }
+    }
     
-    private static func loadFont(withName fontName: String) {
-        guard
-            let bundleURL = Bundle(for: Nomad.self).url(forResource: "NomadTools", withExtension: "bundle"),
-            let bundle = Bundle(url: bundleURL),
-            let fontURL = bundle.url(forResource: fontName, withExtension: "ttf"),
-            let fontData = try? Data(contentsOf: fontURL) as CFData,
-            let provider = CGDataProvider(data: fontData),
-            let font = CGFont(provider) else {
-                return
-            }
-        CTFontManagerRegisterGraphicsFont(font, nil)
+    private static func loadFont(withName fontName: String) throws {
+        guard let asset = NSDataAsset(name: "Fonts/\(fontName)", bundle: Bundle.module),
+              let provider = CGDataProvider(data: asset.data as NSData),
+              let font = CGFont(provider),
+              CTFontManagerRegisterGraphicsFont(font, nil) else {
+            print(fontName)
+            throw NSError()
+        }
     }
 }

@@ -46,7 +46,7 @@ public enum Attribute {
     case textColor(UIColor)
     case textAlignment(NSTextAlignment)
     case minimumTextScale(CGFloat)
-    case font(Font, size: CGFloat! = 14)
+    case font(Font, size: CGFloat! = 14, alt: Bool! = false)
     case resize(Bool)
     case numberOfLines(Int)
     case padding(top: CGFloat, right: CGFloat, bottom: CGFloat, left: CGFloat)
