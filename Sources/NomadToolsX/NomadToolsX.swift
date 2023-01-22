@@ -44,6 +44,9 @@ final public class Nomad {
         Nomad.main.asyncAfter(deadline: when, execute: closure)
     }
     
+    public static func ahahah(_ message: String? = nil)
+    { fatalError("ah ah ah!.. \(message ?? "")") }
+    
     // Init
     private init() {
         
