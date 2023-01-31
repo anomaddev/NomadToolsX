@@ -49,7 +49,8 @@ public enum Font: String, CaseIterable {
     public static var Key: NSAttributedString.Key = .font
     public static var Strikethrough: NSAttributedString.Key = .strikethroughStyle
     
-    case Default
+//    case Default
+    case Regular
     case Thin
     case Light
     case Medium
@@ -61,7 +62,6 @@ public enum Font: String, CaseIterable {
     case ExtraLight
     case ExtraLightItalic
     case LightItalic
-    case Regular
     case Italic
     case SemiBold
     case SemiBoldItalic
@@ -77,7 +77,11 @@ public enum Font: String, CaseIterable {
         let fontFamily = alternative ? Nomad.theme.altFontFamily : Nomad.theme.fontFamily
         let thefont = "\(fontFamily.rawValue)-\(self.rawValue)"
         guard let font = UIFont(name: thefont, size: size)
-        else { fatalError("You are trying to load an invalid font") }
+        else {
+            guard let font = UIFont(name: fontFamily.rawValue, size: size)
+            else { fatalError("You are trying to load an invalid font") }
+            return font
+        }
         return font
     }
 //        switch fontFamily {

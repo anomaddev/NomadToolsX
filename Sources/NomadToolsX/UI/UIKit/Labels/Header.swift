@@ -41,7 +41,7 @@ public class Header: UILabel, Attributed {
         case .H5: font = Font.Bold; size = 14
         case .H6: font = Font.Medium; size = 14
         case .P(let s):
-            font = Font.Default; size = s
+            font = Font.Regular; size = s
             numberOfLines = 0
         case .none: break
         }

@@ -13,7 +13,7 @@ import Cartography
 
 open class Input: UITextField, Attributed {
     public var defaultAttributes: [Attribute] = [
-        .font(.Default, size: 16),
+        .font(.Regular, size: 16),
         .textColor(.onBackground),
         .cornerRadius(5),
         .backgroundColor(.surface)
@@ -46,7 +46,7 @@ open class Input: UITextField, Attributed {
             self.addShadow()
         case .Flat:
             self.setAttributes([
-                .font(.Default, size: 16),
+                .font(.Regular, size: 16),
                 .textColor(.onBackground),
                 .backgroundColor(.surface)
             ])
@@ -148,7 +148,7 @@ open class TitledInput: NomadView {
         switch style {
         case .Flat:
             input.setAttributes([
-                .font(.Default, size: 16),
+                .font(.Regular, size: 16),
                 .textColor(.onBackground),
                 .backgroundColor(.background),
                 .cornerRadius(0),
