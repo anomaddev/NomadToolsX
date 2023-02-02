@@ -9,6 +9,8 @@ import UIKit
 
 open class NomadApp: UIResponder, UIApplicationDelegate {
     
+    static let version: String = "0.7.0"
+    
     /// window
     open var window: UIWindow?
     
