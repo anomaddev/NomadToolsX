@@ -162,8 +162,9 @@ open class RoundIconView: RoundView {
     
 public class FacebookIconView: RoundIconView {
     public override init(_ attributes: [Attribute],
-                  selected sattributes: [Attribute]? = nil) {
+                         selected sattributes: [Attribute]? = nil) {
         super.init(attributes)
+        backgroundColor = .background
         iconView.image = UIImage(named: "facebook_colored")
     }
     
