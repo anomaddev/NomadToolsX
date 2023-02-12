@@ -160,24 +160,13 @@ open class RoundIconView: RoundView {
     }
 }
     
-//    private var shadowLayer: CAShapeLayer!
-//    private var cornerRadius: CGFloat = 25
-//    private var fillColor: UIColor = .primary // the color applied to the shadowLayer, rather than the view's backgroundColor
-//
-//    open override func layoutSubviews() {
-//        super.layoutSubviews()
-//
-//        if shadowLayer == nil {
-//            shadowLayer = CAShapeLayer()
-//
-//            shadowLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).cgPath
-//            shadowLayer.fillColor = fillColor.cgColor
-//
-//            shadowLayer.shadowColor = UIColor.black.cgColor
-//            shadowLayer.shadowPath = shadowLayer.path
-//            shadowLayer.shadowOffset = CGSize(width: 3, height: 3)
-//            shadowLayer.shadowRadius = 3
-//
-//            layer.insertSublayer(shadowLayer, at: 0)
-//        }
-//    }
+public class FacebookIconView: RoundIconView {
+    public override init(_ attributes: [Attribute],
+                  selected sattributes: [Attribute]? = nil) {
+        super.init(attributes)
+        iconView.image = UIImage(named: "facebook_colored")
+    }
+    
+    public required init?(coder: NSCoder)
+    { super.init(coder: coder) }
+}
