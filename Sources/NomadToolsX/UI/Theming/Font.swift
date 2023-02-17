@@ -78,7 +78,7 @@ public enum Font: String, CaseIterable {
         let thefont = "\(fontFamily.rawValue)-\(self.rawValue)"
         guard let font = UIFont(name: thefont, size: size)
         else {
-            let fallback = "\(fontFamily.rawValue)-\(Font.Regular.rawValue)"
+            let fallback = fontFamily != .HelveticaNeue ? "\(fontFamily.rawValue)-\(Font.Regular.rawValue)" : fontFamily.rawValue
             guard let font = UIFont(name: fallback, size: size)
             else {
                 print("The Font: \(thefont)")
