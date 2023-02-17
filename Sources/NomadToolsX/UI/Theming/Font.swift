@@ -71,7 +71,7 @@ public enum Font: String, CaseIterable {
     case ExtraBold
     
     public func getFont(size: CGFloat? = 14,
-                        alternative: Bool! = false) throws -> UIFont
+                        alternative: Bool! = false) -> UIFont
     {
         guard let size = size else { return UIFont(name: "HelveticaNeue", size: 14)! }
         let fontFamily = alternative ? Nomad.theme.altFontFamily : Nomad.theme.fontFamily
@@ -80,7 +80,11 @@ public enum Font: String, CaseIterable {
         else {
             let fallback = "\(fontFamily.rawValue)-\(Font.Regular.rawValue)"
             guard let font = UIFont(name: fallback.rawValue, size: size)
-            else { throw NSError() } // THROW:
+            else {
+                print("The Font: \(thefont)")
+                print("The Fallback: \(fallback)")
+                fatalError("You are attempting to get an invalid font and the fallback failed")
+            } // THROW:
             return font
         }
         return font
