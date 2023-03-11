@@ -77,6 +77,17 @@ public enum Social: String, Codable {
         }
     }
     
+    public var icon: UIImage? {
+        switch self {
+        case .gamecenter,
+             .google:
+            return UIImage(named: self.rawValue + "_colored", in: .module, compatibleWith: nil)
+            
+        default:
+            return UIImage(named: self.rawValue, in: .module, compatibleWith: nil)
+        }
+    }
+    
     public var color: UIColor {
         switch self {
         case .facebook: return UIColor("#3b5998")
