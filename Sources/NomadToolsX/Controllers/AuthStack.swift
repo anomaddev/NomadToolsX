@@ -81,8 +81,7 @@ public class AuthStack: UIView {
         guard let btn = sender.view as? IconButton,
               let login = Social(providerIndex: btn.tag)
         else { return } // THROW:
-        
-        
+        self.delegate?.run(login: login)
     }
     
     required init?(coder: NSCoder)
