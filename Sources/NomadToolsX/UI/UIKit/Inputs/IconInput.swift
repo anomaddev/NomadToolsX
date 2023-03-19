@@ -42,8 +42,8 @@ open class IconInput: UITextField, Attributed {
         constrain(icon)
         { icon in
             let superview = icon.superview!
-            _offset2 = icon.left ~== superview.left + 12.5
-            _offset = icon.top ~== superview.top + 12.5
+            _offset2 = icon.left ~== superview.left + 2.5
+            _offset = icon.top ~== superview.top + 2.5
             icon.centerY ~== superview.centerY
             icon.width ~== icon.height
         }
@@ -74,8 +74,8 @@ open class IconInput: UITextField, Attributed {
         for attribute in attributes {
             switch attribute {
             case .offset(let val):
-                _offset.constant = val ?? 12.5
-                _offset2.constant = val ?? 12.5
+                _offset.constant = val ?? 2.5
+                _offset2.constant = val ?? 2.5
                 
             case .placeholder(let place): placeholder = place
             case .text(let txt): text = txt
