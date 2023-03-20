@@ -13,7 +13,6 @@ public protocol Asset {
 
 public enum Icon: String, CaseIterable, Asset {
     
-    case backArrow
     case bell
     
     case calendar
@@ -24,6 +23,7 @@ public enum Icon: String, CaseIterable, Asset {
     
     case imprt
     
+    case leftArrow
     case list
     
     case menu
@@ -32,6 +32,8 @@ public enum Icon: String, CaseIterable, Asset {
     case plus
     
     case qrcode
+    
+    case rightArrow
     
     case search
     
