@@ -52,7 +52,9 @@ public enum Attribute {
     case padding(top: CGFloat, right: CGFloat, bottom: CGFloat, left: CGFloat)
     
     /// UIImageView
+    case icon(Icon, UIColor? = Nomad.theme.onBackground)
     case image(UIImage?)
+    case asset(Asset, color: UIColor? = nil)
     case contentMode(UIView.ContentMode)
     
     /// UIStackView
@@ -62,7 +64,6 @@ public enum Attribute {
     case spacing(CGFloat)
     
     /// Icon Views
-    case icon(Image, UIColor? = Nomad.theme.onBackground)
     case iconSize(CGSize)
     
     /// Buttons

@@ -85,7 +85,10 @@ open class IconInput: UITextField, Attributed {
             case .keyboard(let type): keyboardType = type
             case .autocorrection(let auto): autocorrectionType = auto
             case .capitalization(let cap): autocapitalizationType = cap
-            case .icon(let image, let color): icon.image = image.tint()
+            case .icon(let image, let color):
+                icon.image = image.image
+                icon.tintColor = color
+                
             case .padding(let top, let right, let bottom, let left):
                 padding = UIEdgeInsets(top: top, left: left, bottom: bottom, right: right)
             default: break

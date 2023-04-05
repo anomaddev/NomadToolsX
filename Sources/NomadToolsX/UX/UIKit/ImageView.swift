@@ -34,10 +34,27 @@ public class ImageView: UIImageView, Attributed {
         
     }
     
+    public init(_ asset: Asset, color: UIColor? = nil) {
+        super.init(frame: .zero)
+        if let color = color
+        { tintColor = color }
+        image = asset.image
+    }
+    
     func setAttributes(_ attributes: [Attribute]) {
         setView(attributes)
         for attribute in attributes {
             switch attribute {
+            case .image(let img): image = img
+            case .asset(let asset, let color):
+                image = asset.image
+                if let color = color
+                { tintColor = color }
+                
+            case .icon(let icon, let color):
+                image = icon.image
+                tintColor = color
+                
             default: break
             }
         }
