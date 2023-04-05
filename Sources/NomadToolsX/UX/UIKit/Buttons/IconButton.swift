@@ -19,7 +19,7 @@ open class IconButton: NomadView {
     public lazy var blank: BlankView = BlankView([.backgroundColor(.clear)])
     
     private var height: NSLayoutConstraint!
-    private var image: Image!
+    private var image: Icon!
     
     private var _text: String?
     public var text: String? {
@@ -95,7 +95,8 @@ open class IconButton: NomadView {
             case .image(let img): icon.image = img
                 
             case .icon(let i, let clr):
-                icon.image = i.tint()
+                icon.image = i.image
+                icon.tintColor = clr
                 image = i
                 
             case .text(let str): text = str

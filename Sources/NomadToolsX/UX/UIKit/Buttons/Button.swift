@@ -57,7 +57,8 @@ open class Button: UIButton, Attributed {
                     }
                 }()
                 
-                setImage(img.tint()?.rotate(degrees: rotate), for: .normal)
+                setImage(img.image?.rotate(degrees: rotate), for: .normal)
+                tintColor = color
                 
             case .image(let img): setImage(img, for: .normal)
             case .insets(let insets): imageEdgeInsets = insets

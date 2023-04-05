@@ -60,7 +60,9 @@ open class RoundImageView: UIImageView, Attributed {
         for attribute in attributes {
             switch attribute {
             case .image(let img): image = img
-            case .icon(let asset, let color): image = asset.tint()
+            case .icon(let asset, let color):
+                image = asset.image
+                tintColor = color
             default: break
             }
         }
@@ -133,7 +135,8 @@ open class RoundIconView: RoundView {
                 iconWidth.constant = size.width
                 
             case .icon(let img, let color):
-                iconView.image = img.tint()
+                iconView.image = img.image
+                iconView.tintColor = color
                 
             default: break
             }

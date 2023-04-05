@@ -37,6 +37,11 @@ open class BlankView: NomadView {
         setView(attributes)
     }
     
+    public init(_ color: UIColor) {
+        super.init(frame: .zero)
+        backgroundColor = color
+    }
+    
     required public init?(coder: NSCoder)
     { super.init(coder: coder) }
 }
