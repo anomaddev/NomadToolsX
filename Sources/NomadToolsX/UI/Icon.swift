@@ -33,6 +33,7 @@ public enum Icon: String, CaseIterable, Asset {
     
     case qrcode
     
+    case refresh
     case rightArrow
     
     case search
