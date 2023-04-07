@@ -115,6 +115,10 @@ extension UIView {
                 layer.cornerRadius = radius!
                 layer.masksToBounds = true
                 
+            case .square(let size):
+                constrainWidth(size)
+                constrainHeight(size)
+                
             case .setHeight(let height): constrainHeight(height)
             case .setWidth(let width): constrainWidth(width)
             case .setSize(let size):

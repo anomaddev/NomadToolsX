@@ -9,8 +9,14 @@ import UIKit
 
 public enum FontFamily: String, CaseIterable {
     
+    case Bison
+    
+    case FuturaPT
+    
     case HelveticaNeue
+    
     case PTSans
+
     case Raleway
     
 }
@@ -70,6 +76,10 @@ public enum Font: String, CaseIterable {
     case ExtraBoldItalic
     case ExtraBold
     
+    /// Extra
+    case LightBT
+    case MediumBT
+    
     public func getFont(size: CGFloat? = 14,
                         alternative: Bool! = false) -> UIFont
     {
@@ -126,6 +136,8 @@ public enum Font: String, CaseIterable {
             }
             .map { name in Font.allCases.map { "\(name.rawValue)-\($0.rawValue)" }}
             .reduce([], +)
+        print(fontNames)
+        
         for fontName in fontNames
         { try? loadFont(withName: fontName) }
     }
@@ -138,5 +150,6 @@ public enum Font: String, CaseIterable {
             print(fontName)
             throw NSError()
         }
+        print("FONT: \(fontName)")
     }
 }

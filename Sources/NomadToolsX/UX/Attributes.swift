@@ -34,6 +34,7 @@ public enum Attribute {
     case addShadow(color: UIColor! = .onBackground, opacity: Float! = 0.4, radius: CGFloat! = 2, offset: CGSize! = .square(2))
     
     /// Sizing
+    case square(CGFloat)
     case setHeight(CGFloat)
     case setWidth(CGFloat)
     case setSize(CGSize)
