@@ -77,8 +77,7 @@ public enum Font: String, CaseIterable {
     case ExtraBold
     
     /// Extra
-    case LightBT
-    case MediumBT
+    case MediumOblique
     
     public func getFont(size: CGFloat? = 14,
                         alternative: Bool! = false) -> UIFont
