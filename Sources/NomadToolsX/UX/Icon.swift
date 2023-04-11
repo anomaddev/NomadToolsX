@@ -16,6 +16,7 @@ public enum Icon: String, CaseIterable, Asset {
     case bell
     
     case calendar
+    case check
     case chevron
     
     case editdots
