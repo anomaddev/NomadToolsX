@@ -77,6 +77,7 @@ public enum Font: String, CaseIterable {
     case ExtraBold
     
     /// Extra
+    case Book
     case MediumOblique
     case BoldOblique
     
