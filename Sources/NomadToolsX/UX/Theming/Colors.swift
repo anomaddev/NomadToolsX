@@ -30,6 +30,8 @@ public extension UIColor {
     
     static var surface: UIColor     { Nomad.theme.surface }
     static var onSurface: UIColor   { Nomad.theme.onSurface }
+    static var darkSurface: UIColor { Nomad.theme.darkSurface }
+    static var onDarkSurface: UIColor { Nomad.theme.onDarkSurface }
     
     static var warning: UIColor     { Nomad.theme.warning }
     static var onWarning: UIColor   { Nomad.theme.onWarning }
@@ -62,6 +64,8 @@ public extension CGColor {
     
     static var surface: CGColor     { UIColor.surface.cgColor }
     static var onSurface: CGColor   { UIColor.onSurface.cgColor }
+    static var darkSurface: CGColor { UIColor.darkSurface.cgColor }
+    static var onDarkSurface: CGColor { UIColor.onDarkSurface.cgColor }
     
     static var warning: CGColor     { UIColor.warning.cgColor }
     static var onWarning: CGColor   { UIColor.onWarning.cgColor }

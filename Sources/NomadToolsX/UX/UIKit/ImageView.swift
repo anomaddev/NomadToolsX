@@ -12,12 +12,13 @@ public class ImageView: UIImageView, Attributed {
         .contentMode(.scaleAspectFit)
     ]
     
-    init(_ image: Image, tinted color: UIColor? = nil) {
+    init(_ image: Icon, tinted color: UIColor? = nil) {
         guard let img = image.image
         else { super.init(frame: .zero); return }
         
         super.init(frame: .square(img.size.height))
-        self.image = color != nil ? image.tint() : image.image
+        self.image = image.image
+        self.tintColor = color
         contentMode = .scaleAspectFit
     }
     

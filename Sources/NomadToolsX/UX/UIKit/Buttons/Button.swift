@@ -43,21 +43,21 @@ open class Button: UIButton, Attributed {
             case .selectedColor(let color): setTitleColor(color, for: .selected)
                 
             case .icon(let img, let color):
-                let rotate: Float = {
-                    let attr = attributes.filter {
-                        switch $0 {
-                        case .rotated: return true
-                        default: return false
-                        }
-                    }.first
-                    
-                    switch attr {
-                    case .rotated(let deg): return deg
-                    default: return 0.0
-                    }
-                }()
+//                let rotate: Float = {
+//                    let attr = attributes.filter {
+//                        switch $0 {
+//                        case .rotated: return true
+//                        default: return false
+//                        }
+//                    }.first
+//
+//                    switch attr {
+//                    case .rotated(let deg): return deg
+//                    default: return 0.0
+//                    }
+//                }()
                 
-                setImage(img.image?.rotate(degrees: rotate), for: .normal)
+                setImage(img.image, for: .normal)
                 tintColor = color
                 
             case .image(let img): setImage(img, for: .normal)

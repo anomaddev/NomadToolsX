@@ -23,6 +23,7 @@ open class AppTheme {
     public var error:      UIColor = UIColor("#d50000")
     public var success:    UIColor = UIColor("#1FAD51")
     public var surface:    UIColor = UIColor("#e0e0e0")
+    public var darkSurface: UIColor = UIColor("#666666")
     public var background: UIColor = UIColor("#fafafa")
     public var warning:    UIColor = UIColor("#ECB000")
     
@@ -31,6 +32,7 @@ open class AppTheme {
     public var onError:        UIColor = UIColor("#fafafa")
     public var onSuccess:      UIColor = UIColor("#fafafa")
     public var onSurface:      UIColor = UIColor("#212121")
+    public var onDarkSurface:  UIColor = UIColor("#fafafa")
     public var onBackground:   UIColor = UIColor("#212121")
     public var onWarning:      UIColor = UIColor("#fafafa")
     
@@ -49,6 +51,8 @@ open class AppTheme {
                 
             case .onSurface(let c): onSurface = c
             case .surface(let c): surface = c
+            case .onDarkSurface(let c): onDarkSurface = c
+            case .darkSurface(let c): darkSurface = c
                 
             case .onPrimary(let c): onPrimary = c
             case .primary(let c): primary = c
@@ -78,6 +82,8 @@ open class AppTheme {
         
         case onSurface(UIColor)
         case surface(UIColor)
+        case onDarkSurface(UIColor)
+        case darkSurface(UIColor)
         
         case onPrimary(UIColor)
         case primary(UIColor)
