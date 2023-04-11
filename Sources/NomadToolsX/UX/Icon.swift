@@ -32,6 +32,7 @@ public enum Icon: String, CaseIterable, Asset {
     case menu
     case menu2
     
+    case pause
     case plus
     
     case qrcode

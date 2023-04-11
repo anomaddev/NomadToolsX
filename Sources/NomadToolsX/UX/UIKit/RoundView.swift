@@ -63,6 +63,11 @@ open class RoundImageView: UIImageView, Attributed {
             case .icon(let asset, let color):
                 image = asset.image
                 tintColor = color
+                
+            case .asset(let asset, let color):
+                image = asset.image
+                tintColor = color
+                
             default: break
             }
         }
