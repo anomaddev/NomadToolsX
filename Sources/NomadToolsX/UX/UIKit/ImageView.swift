@@ -56,6 +56,9 @@ public class ImageView: UIImageView, Attributed {
                 image = icon.image
                 tintColor = color
                 
+            case .contentMode(let mode):
+                contentMode = mode
+                
             default: break
             }
         }
