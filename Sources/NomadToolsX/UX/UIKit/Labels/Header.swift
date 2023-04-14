@@ -103,12 +103,27 @@ public class Header: UILabel, Attributed {
     
     // STYLING:
     public enum HeaderStyle {
+        
+        /// Bold Size 32
         case H1
+        
+        /// Medium Size 24
         case H2
+        
+        /// Bold Size 18
         case H3
+        
+        /// Medium Size 16
         case H4
+        
+        /// Bold Size 14
         case H5
+        
+        /// Medium Size 14
         case H6
-        case P(CGFloat)
+        
+        /// Regular Font Weight
+        /// - Parameter size: CGFloat font size
+        case P(size: CGFloat)
     }
 }

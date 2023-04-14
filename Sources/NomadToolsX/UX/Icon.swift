@@ -25,6 +25,8 @@ public enum Icon: String, CaseIterable, Asset {
     case flashOff
     case flashOn
     
+    case home
+    
     case imprt
     
     case leftArrow
