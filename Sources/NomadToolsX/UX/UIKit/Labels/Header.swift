@@ -40,6 +40,9 @@ public class Header: UILabel, Attributed {
         case .H4: font = Font.Medium; size = 16
         case .H5: font = Font.Bold; size = 14
         case .H6: font = Font.Medium; size = 14
+        case .B(let s): font = Font.Bold; size = s
+        case .M(let s): font = Font.Medium; size = s
+        
         case .P(let s):
             font = Font.Regular; size = s
             numberOfLines = 0
@@ -121,6 +124,14 @@ public class Header: UILabel, Attributed {
         
         /// Medium Size 14
         case H6
+        
+        /// Bold Font Weight
+        /// - Parameter size: CGFloat font size
+        case B(size: CGFloat)
+        
+        /// Medium Font Weight
+        /// - Parameter size: CGFloat font size
+        case M(size: CGFloat)
         
         /// Regular Font Weight
         /// - Parameter size: CGFloat font size
