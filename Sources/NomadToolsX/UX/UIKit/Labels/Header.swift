@@ -26,7 +26,8 @@ public class Header: UILabel, Attributed {
                 alignment: NSTextAlignment! = .left,
                 color: UIColor! = .onBackground,
                 height: CGFloat? = nil,
-                width: CGFloat? = nil) {
+                width: CGFloat? = nil,
+                altFont: Bool! = false) {
         super.init(frame: .zero)
         overrideUserInterfaceStyle = .light
         setAttributes(defaultAttributes)
@@ -40,12 +41,14 @@ public class Header: UILabel, Attributed {
         case .H4: font = Font.Medium; size = 16
         case .H5: font = Font.Bold; size = 14
         case .H6: font = Font.Medium; size = 14
+            
+        case .XB(let s): font = Font.ExtraBold; size = s
         case .B(let s): font = Font.Bold; size = s
         case .M(let s): font = Font.Medium; size = s
-        
         case .P(let s):
             font = Font.Regular; size = s
             numberOfLines = 0
+            
         case .none: break
         }
         
@@ -56,7 +59,7 @@ public class Header: UILabel, Attributed {
         { constrainWidth(width) }
 
         self.setAttributes([
-            .font(font, size: size),
+            .font(font, size: size, alt: altFont),
             .text(text),
             .textAlignment(alignment),
             .textColor(color)
@@ -124,6 +127,10 @@ public class Header: UILabel, Attributed {
         
         /// Medium Size 14
         case H6
+        
+        /// Extra Bold Font Weight
+        /// - Parameter size: CGFloat font size
+        case XB(size: CGFloat)
         
         /// Bold Font Weight
         /// - Parameter size: CGFloat font size

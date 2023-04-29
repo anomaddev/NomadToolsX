@@ -50,8 +50,7 @@ open class Separator: UIView {
     
     lazy var line: BlankView = BlankView([
         .backgroundColor(.secondary),
-        .cornerRadius(1),
-        .setHeight(2)
+        .cornerRadius(1)
     ])
     
     var padding: UIEdgeInsets = .init(top: 0, left: 30, bottom: 0, right: 30)
@@ -68,9 +67,11 @@ open class Separator: UIView {
         layoutIfNeeded()
     }}
      
-    public init(padding: UIEdgeInsets! = .init(top: 0, left: 30, bottom: 0, right: 30)) {
+    public init(padding: UIEdgeInsets! = .init(top: 0, left: 30, bottom: 0, right: 30),
+                alpha: CGFloat! = 0.25,
+                vertical: Bool! = false) {
         super.init(frame: .zero)
-        line.alpha = 0.25
+        line.alpha = alpha
         backgroundColor = .background
         add(line)
         constrain(line)
@@ -80,7 +81,12 @@ open class Separator: UIView {
             line.top ~== superview.top + padding.top
             line.right ~== superview.right - padding.right
             line.bottom ~== superview.bottom - padding.bottom
+            
+            if vertical { line.width ~== 2 }
+            else { line.height ~== 2 }
         }
+        
+        layoutIfNeeded()
     }
     
     public required init?(coder: NSCoder)

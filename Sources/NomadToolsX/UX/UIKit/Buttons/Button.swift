@@ -61,6 +61,10 @@ open class Button: UIButton, Attributed {
                 tintColor = color
                 
             case .image(let img): setImage(img, for: .normal)
+            case .asset(let img, let color):
+                setImage(img.image, for: .normal)
+                if let color = color { tintColor = color }
+                
             case .insets(let insets): imageEdgeInsets = insets
             case .numberOfLines(let lines): titleLabel?.numberOfLines = lines
                 

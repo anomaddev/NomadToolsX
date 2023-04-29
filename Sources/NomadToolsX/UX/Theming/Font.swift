@@ -15,9 +15,11 @@ public enum FontFamily: String, CaseIterable {
     
     case HelveticaNeue
     
+    case PathwayExtreme
     case PTSans
 
     case Raleway
+    case Rubik
     
 }
 //    public var value: [String] {
