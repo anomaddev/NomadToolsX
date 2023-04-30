@@ -127,6 +127,10 @@ extension UIView {
                 
             case .setHeight(let height): constrainHeight(height)
             case .setWidth(let width): constrainWidth(width)
+            case .setWidthHeight(let width, let height):
+                constrainHeight(height)
+                constrainWidth(width)
+                
             case .setSize(let size):
                 constrainHeight(size.height)
                 constrainWidth(size.width)
