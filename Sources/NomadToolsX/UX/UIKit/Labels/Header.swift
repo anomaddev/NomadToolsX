@@ -43,6 +43,8 @@ public class Header: UILabel, Attributed {
         case .H6: font = Font.Medium; size = 14
             
         case .XB(let s): font = Font.ExtraBold; size = s
+        case .SB(let s): font = Font.SemiBold; size = s
+            
         case .B(let s): font = Font.Bold; size = s
         case .M(let s): font = Font.Medium; size = s
         case .P(let s):
@@ -131,6 +133,10 @@ public class Header: UILabel, Attributed {
         /// Extra Bold Font Weight
         /// - Parameter size: CGFloat font size
         case XB(size: CGFloat)
+        
+        /// Semi Bold Font Weight
+        /// - Parameter size: CGFloat font size
+        case SB(size: CGFloat)
         
         /// Bold Font Weight
         /// - Parameter size: CGFloat font size

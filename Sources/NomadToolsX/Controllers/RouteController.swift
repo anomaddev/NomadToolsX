@@ -19,7 +19,10 @@ open class RouteController: FAPanelController {
     public lazy var activitydot: ActivityDot = ActivityDot()
     
     public var leftMenuWidth: CGFloat   = (UIScreen.main.bounds.width / 2) + 50
+    { didSet { configs.leftPanelWidth = leftMenuWidth }}
+    
     public var rightMenuWidth: CGFloat  = UIScreen.main.bounds.width * 3/5
+    { didSet { configs.rightPanelWidth = rightMenuWidth }}
     
     override public init() {
         super.init()

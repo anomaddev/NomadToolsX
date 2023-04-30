@@ -25,17 +25,17 @@ public class Distance {
     { get { return _unit }}
     
     /// Quick Conversions
-    public var meters: Int
-    { converted(to: .meters).value.int }
+    public var meters: Double
+    { converted(to: .meters).value }
     
-    public var kilometers: Int
-    { converted(to: .kilometers).value.int }
+    public var kilometers: Double
+    { converted(to: .kilometers).value }
     
-    public var miles: Int
-    { converted(to: .miles).value.int }
+    public var miles: Double
+    { converted(to: .miles).value }
     
-    public var nautical: Int
-    { converted(to: .nautical).value.int }
+    public var nautical: Double
+    { converted(to: .nautical).value }
     
     /// Initialize
     public init(is number: Int! = 0,
@@ -74,9 +74,23 @@ public class Distance {
     
     public func converted(to unit: Unit) -> Distance {
         let value = baseline / unit.multiplier
+        return Distance(is: value, in: unit)
+    }
+    
+    public func convert(to unit: Unit) {
+        let value = baseline / unit.multiplier
         _value = value.number
         _unit = unit
-        return Distance(is: value.int, in: unit)
+    }
+    
+    public func add(distance: Distance) {
+        let value = distance.converted(to: _unit).value
+        self._value = (value + self.value).number
+    }
+    
+    public func adding(distance: Distance) -> Distance {
+        let value = distance.converted(to: _unit).value
+        return Distance(is: value + self._value.double, in: _unit)
     }
     
     // TODO: More conversion, rounded etc
@@ -109,7 +123,7 @@ public class Distance {
             // Imperial
             case .feet: return 0.3048
             case .yards: return 0.9144
-            case .miles: return 1609.3
+            case .miles: return 1609.34
             case .nautical: return 1852
                 
             // Metric

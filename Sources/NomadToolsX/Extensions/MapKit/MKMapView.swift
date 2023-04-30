@@ -50,11 +50,11 @@ public extension MKMapView {
         guard let loc = location else {
             if let coord = coordinate {
                 let locale = CLLocation(latitude: coord.latitude, longitude: coord.longitude)
-                self._center(on: locale, radius: radius.meters.double, animated: animated)
+                self._center(on: locale, radius: radius.meters, animated: animated)
             }
             return
         }
-        self._center(on: loc, radius: radius.meters.double)
+        self._center(on: loc, radius: radius.meters)
     }
     
     private func _center(on loc: CLLocation,

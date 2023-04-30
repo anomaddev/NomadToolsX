@@ -40,8 +40,8 @@ public class Speed {
     /// Quick Conversions
     
     /// Initialize
-    public init(is number: Int! = 0,
-                in unit: Unit! = .kmh)
+    public init(is number: Int,
+                in unit: Unit! = .mps)
     {
         _value = NSNumber(value: number)
         _unit = unit
@@ -51,7 +51,7 @@ public class Speed {
     }
     
     public init(is num: Double,
-                in unit: Unit! = .kmh)
+                in unit: Unit! = .mps)
     {
         _value = NSNumber(value: num)
         _unit = unit
@@ -66,9 +66,13 @@ public class Speed {
     
     public func converted(to unit: Unit) -> Speed {
         let value = baseline / unit.multiplier
+        return Speed(is: value, in: unit)
+    }
+    
+    public func convert(to unit: Unit) {
+        let value = baseline / unit.multiplier
         _value = value.number
         _unit = unit
-        return Speed(is: value, in: unit)
     }
     
     // TODO: More conversion, rounded etc

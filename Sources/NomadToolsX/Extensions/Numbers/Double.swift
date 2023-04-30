@@ -36,7 +36,14 @@ public extension Double {
         return (self * divisor).rounded() / divisor
     }
     
+    /// Trucates the double to number of decimal places value
     func truncate(places: Int) -> Double {
         return Double(floor(pow(10.0, Double(places)) * self)/pow(10.0, Double(places)))
+    }
+    
+    func HMS() -> (Double, Double, Double) {
+        let (hr,  minf) = modf(self / 3600)
+        let (min, secf) = modf(60 * minf)
+        return (hr, min, 60 * secf)
     }
 }
