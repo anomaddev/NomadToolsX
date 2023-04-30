@@ -42,7 +42,8 @@ open class NomadApp: UIResponder, UIApplicationDelegate {
         return i
     }()
     
-    open func run(options: [UIApplication.LaunchOptionsKey: Any]? = nil, on application: UIApplication) throws {
+    open func run(options: [UIApplication.LaunchOptionsKey: Any]? = nil,
+                  on application: UIApplication) throws {
         if NomadApp.isDebugging { debugging() }
     }
     
@@ -63,7 +64,8 @@ open class NomadApp: UIResponder, UIApplicationDelegate {
         print("===================")
     }
     
-    public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    public func application(_ application: UIApplication,
+                            didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         do {
             // Firebase
 //            FirebaseApp.configure()
