@@ -37,9 +37,8 @@ public extension Double {
     }
     
     /// Trucates the double to number of decimal places value
-    func truncate(places: Int) -> Double {
-        return Double(floor(pow(10.0, Double(places)) * self)/pow(10.0, Double(places)))
-    }
+    func truncate(places: Int) -> Double
+    { return Double(floor(pow(10.0, Double(places)) * self)/pow(10.0, Double(places))) }
     
     func HMS() -> (Double, Double, Double) {
         let (hr,  minf) = modf(self / 3600)

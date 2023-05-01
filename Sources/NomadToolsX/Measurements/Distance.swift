@@ -95,12 +95,13 @@ public class Distance {
     
     // TODO: More conversion, rounded etc
     public func labeled(styled: UnitLabelStyle,
-                      in unit: Unit? = nil,
-                 whitespace: Bool! = true) -> String {
+                        in unit: Unit? = nil,
+                        whitespace: Bool! = true,
+                        truncate: Int! = 2) -> String {
         let value = converted(to: unit ?? _unit)
-        let num = value.value.int
-        let unit = value.unit
-        return "\(num.stringify)\(unit.label(with: styled, whitespace: whitespace))"
+        let num = value.value.truncate(places: truncate)
+        let u = value.unit
+        return "\(num)\(u.label(with: styled, whitespace: whitespace))"
     }
     
     // MARK: Units
