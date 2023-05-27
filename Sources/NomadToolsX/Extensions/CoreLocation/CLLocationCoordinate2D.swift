@@ -36,3 +36,18 @@ public extension CLLocationCoordinate2D {
     var location: CLLocation
     { CLLocation(latitude: latitude, longitude: longitude)}
 }
+
+extension Array where Element == CLLocationCoordinate2D {
+    public func minMax() -> ((Double, Double), (Double, Double)) {
+        // Lookup is done with one pass on array with only reduce
+        return reduce((
+            (.greatestFiniteMagnitude, -.greatestFiniteMagnitude),
+            (.greatestFiniteMagnitude, -.greatestFiniteMagnitude)
+        )) { r, c in
+            (
+                (Swift.min(c.latitude,r.0.0), Swift.max(c.latitude, r.0.1)),
+                (Swift.min(c.longitude, r.1.0), Swift.max(c.longitude, r.1.1))
+            )
+        }
+    }
+}
