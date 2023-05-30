@@ -45,6 +45,7 @@ public enum Icon: String, CaseIterable, Asset {
     case refresh
     case rightArrow
     
+    case save
     case search
     
     case trash

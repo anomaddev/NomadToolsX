@@ -31,7 +31,7 @@ open class Input: UITextField, Attributed {
         }
     }
     
-    public init(attributes: [Attribute]! = []) {
+    public init(_ attributes: [Attribute]! = []) {
         super.init(frame: .zero)
         setAttributes(defaultAttributes)
         setAttributes(attributes)
@@ -44,6 +44,7 @@ open class Input: UITextField, Attributed {
         case .Rounded:
             self.setAttributes(defaultAttributes)
             self.addShadow()
+            
         case .Flat:
             self.setAttributes([
                 .font(.Regular, size: 16),
@@ -112,7 +113,7 @@ open class TitledInput: NomadView {
         get { input.text }
     }
     
-    public lazy var input: Input = Input(attributes: [
+    public lazy var input: Input = Input([
         .padding(top: 0, right: 15, bottom: 0, left: 15),
         .addShadow(opacity: 0.25, radius: 2, offset: .square(1)),
         .backgroundColor(.background)
