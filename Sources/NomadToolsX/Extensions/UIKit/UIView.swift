@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Cartography
 
 public extension UIView {
     
@@ -59,14 +60,14 @@ public extension UIView {
     
     /// Transforms
     private func rotate(degrees: Float! = 0, animated: Bool! = true) {
-    Nomad.main.async {
-        let duration: CGFloat = animated ? 0.25 : 0
-        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: {
-            self.transform = self.transform.rotated(by: degrees.radians.cgfloat)
-            self.layoutIfNeeded()
-        })
+        Nomad.main.async {
+            let duration: CGFloat = animated ? 0.25 : 0
+            UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: {
+                self.transform = self.transform.rotated(by: degrees.radians.cgfloat)
+                self.layoutIfNeeded()
+            })
+        }
     }
-}
     
     /// Animations
     func shake() {
@@ -108,5 +109,31 @@ public extension UIView {
         anchoredConstraints.width = widthAnchor.constraint(equalToConstant: constant)
         anchoredConstraints.width?.isActive = true
         return anchoredConstraints
+    }
+    
+    /**
+     This function adds the view, on which we call the function, to a specified parent view and afixes the constrains to the size of the parent view.
+    
+     ### Usage Example: ###
+     ```swift
+        let child = UIView()
+        let parent = UIView()
+    
+        child.fitTo(parent)
+     ```
+     
+     - parameter view: The `UIView` that you want to add this child view on to
+    */
+    func fitTo(_ view: UIView) {
+        view.add(self)
+        constrain(self)
+        { theview in
+            let superview = theview.superview!
+            theview.center ~== superview.center
+            theview.left ~== superview.left
+            theview.bottom ~== superview.bottom
+        }
+        
+        view.layoutIfNeeded()
     }
 }

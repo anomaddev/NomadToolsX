@@ -17,8 +17,8 @@ public protocol AuthStateDelegate {
 
 public class AuthStack: UIView {
     
-    lazy var title: Header = Header(style: .H2, alignment: .center, height: 30)
-    lazy var subtitle: Header = Header(alignment: .center, height: 25)
+    public lazy var title: Header = Header(style: .H2, alignment: .center)
+    public lazy var subtitle: Header = Header(alignment: .center, height: 25)
     
     lazy var stack: Column = Column([
         .alignment(.fill),
@@ -34,11 +34,13 @@ public class AuthStack: UIView {
     public var calcHeight: CGFloat! = 0
     public var delegate: AuthStateDelegate?
     
-    public init(logins items: [Social]) {
+    public init(title t: NSAttributedString? = nil,
+                subtitle s: NSAttributedString? = nil,
+                logins items: [Social]) {
         super.init(frame: .zero)
         
-        title.text = "Login to Atlas"
-        subtitle.text = "Select how you would like to login"
+        title.attributedText = t
+        subtitle.attributedText = s
         
         stack.addArrangedSubview(title)
         stack.addArrangedSubview(subtitle)

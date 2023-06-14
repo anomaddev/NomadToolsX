@@ -1,5 +1,5 @@
 import XCTest
-@testable import NomadToolsXX
+@testable import NomadToolsX
 
 final class NomadToolsXTests: XCTestCase {
     func testExample() throws {

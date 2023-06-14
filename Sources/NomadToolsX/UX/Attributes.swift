@@ -39,6 +39,7 @@ public enum Attribute {
     case setWidth(CGFloat)
     case setSize(CGSize)
     case setWidthHeight(CGFloat, CGFloat)
+    case padding(surrounding: CGFloat)
     // MARK: END REQUIRED
     
     /// UILabel
