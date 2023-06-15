@@ -11,6 +11,7 @@ import UIKit
 // Utilities
 import Cartography
 
+@available(iOS 13.4, *)
 extension UITextField {
     public static let kPlusMinused: Notification.Name = .init(rawValue: "kPlusMinused")
     
@@ -60,5 +61,43 @@ extension UITextField {
             "value": self.text,
             "tag": self.tag
         ])
+    }
+    
+    /// Sets the text field to return with a date picker for the input view
+    ///
+    /// # Notes: #
+    ///
+    ///
+    /// # Example: #
+    /// ```swift
+    /// textField.setDatePicker(target: self, selector(selectedDate))
+    /// ```
+    ///
+    /// - parameter target: Target of the action
+    /// - parameter selector: Selector action once the date is chosen
+    ///
+    public func setDatePicker(target: Any, selector: Selector) {
+        let screenWidth = UIScreen.main.bounds.width
+        let datePicker = UIDatePicker(frame: CGRect(x: 0.0, y: 0.0, width: screenWidth, height: 200.0))
+        datePicker.datePickerMode = .date
+        datePicker.locale = .current
+        
+        if #available(iOS 14, *) {
+            datePicker.preferredDatePickerStyle = .compact
+            datePicker.sizeToFit()
+        }
+        
+        self.inputView = datePicker
+        
+//        let toolBar = UIToolbar(frame: CGRect(x: 0.0, y: 0.0, width: screenWidth, height: 40.0))
+//        let cancel = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(tapCancel))
+//        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+//        let done = UIBarButtonItem(title: "Done", style: .done, target: nil, action: selector)
+//        toolBar.setItems([cancel, flexibleSpace, done], animated: false)
+//        self.inputAccessoryView = toolBar
+    }
+    
+    @objc func tapCancel() {
+        self.resignFirstResponder()
     }
 }
