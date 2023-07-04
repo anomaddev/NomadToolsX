@@ -136,4 +136,44 @@ public extension UIView {
         
         view.layoutIfNeeded()
     }
+    
+    /// This function will size the a `UIView` with a given parent `UIView`
+    ///
+    /// - parameter view: The parent `UIView` that you want to match size with
+    ///
+    func sameSize(as view: UIView) {
+        constrain(view, self)
+        { parent, child in
+            child.width ~== parent.width
+            child.height ~== parent.height
+        }
+        
+        view.layoutIfNeeded()
+    }
+    
+    /// This function will size width of a `UIView` with a given parent `UIView` width
+    ///
+    /// - parameter view: The parent `UIView` that you want to match width with
+    ///
+    func sameWidth(as view: UIView) {
+        constrain(view, self)
+        { parent, child in
+            child.width ~== parent.width
+        }
+        
+        view.layoutIfNeeded()
+    }
+    
+    /// This function will size height of a `UIView` with a given parent `UIView` height
+    ///
+    /// - parameter view: The parent `UIView` that you want to match height with
+    ///
+    func sameHeight(as view: UIView) {
+        constrain(view, self)
+        { parent, child in
+            child.height ~== parent.height
+        }
+        
+        view.layoutIfNeeded()
+    }
 }

@@ -50,6 +50,8 @@ public enum Icon: String, CaseIterable, Asset {
     
     case trash
     
+    case user
+    
     case world
     
     public var image: UIImage? {

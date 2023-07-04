@@ -58,6 +58,7 @@ public enum Attribute {
     case image(UIImage?)
     case asset(Asset, color: UIColor? = nil)
     case contentMode(UIView.ContentMode)
+    case tintColor(UIColor)
     
     /// UIStackView
     case alignment(UIStackView.Alignment)
