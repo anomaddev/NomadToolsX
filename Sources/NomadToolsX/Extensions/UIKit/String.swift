@@ -25,7 +25,9 @@ public extension String {
         return String((0..<length).map{ _ in letters.randomElement()! })
     }
     
-    /// is/isnot
+    // MARK: - is/isnot
+    
+    /// is `String` a valid email address
     var isValidEmail: Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)

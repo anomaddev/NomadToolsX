@@ -15,7 +15,7 @@ open class HeaderFooterView: UITableViewHeaderFooterView {
     public static func getId() -> String { id }
     open class var id: String { return "headerFooter" }
     
-    public lazy var text: Header = Header(style: .H3, height: 20)
+    public lazy var text: Header = Header(height: 20)
     public lazy var subtext: Header = Header(style: .H3, alignment: .right)
     
     public static func register(on table: UITableView)
@@ -29,7 +29,10 @@ open class HeaderFooterView: UITableViewHeaderFooterView {
     }
     
     open func layout(with text: String? = nil,
-                     sub subtext: String? = nil) {
+                     sub subtext: String? = nil,
+                     pad padding: CGFloat! = 10,
+                     style header: Header.HeaderStyle! = .H3) {
+        self.text = Header(style: header, height: 20)
         self.text.text = text
         self.subtext.text = subtext
         add(self.text, self.subtext)
@@ -38,11 +41,13 @@ open class HeaderFooterView: UITableViewHeaderFooterView {
             let superview = text.superview!
             text.left ~== superview.left + 15
             text.centerY ~== superview.centerY
-            text.top ~== superview.top + 10
+            text.top ~== superview.top + padding
             
             sub.right ~== superview.right - 15
             sub.centerY ~== superview.centerY
         }
+        
+        layoutIfNeeded()
     }
 }
 
