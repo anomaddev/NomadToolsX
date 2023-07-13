@@ -124,14 +124,14 @@ public extension UIView {
      
      - parameter view: The `UIView` that you want to add this child view on to
     */
-    func fitTo(_ view: UIView) {
+    func fitTo(_ view: UIView, padding: UIEdgeInsets! = .zero) {
         view.add(self)
         constrain(self)
         { theview in
             let superview = theview.superview!
             theview.center ~== superview.center
-            theview.left ~== superview.left
-            theview.bottom ~== superview.bottom
+            theview.left ~== superview.left + padding.left
+            theview.bottom ~== superview.bottom - padding.bottom
         }
         
         view.layoutIfNeeded()
