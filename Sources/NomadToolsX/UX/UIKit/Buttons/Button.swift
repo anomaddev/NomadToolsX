@@ -42,28 +42,24 @@ open class Button: UIButton, Attributed {
             case .textColor(let color): setTitleColor(color, for: .normal)
             case .selectedColor(let color): setTitleColor(color, for: .selected)
                 
-            case .icon(let img, let color):
-//                let rotate: Float = {
-//                    let attr = attributes.filter {
-//                        switch $0 {
-//                        case .rotated: return true
-//                        default: return false
-//                        }
-//                    }.first
-//
-//                    switch attr {
-//                    case .rotated(let deg): return deg
-//                    default: return 0.0
-//                    }
-//                }()
-                
+            case .icon(let img, let color, let rotated):
                 setImage(img.image, for: .normal)
-                tintColor = color
+                
+                if let rotated = rotated
+                { setImage(img.image?.rotate(degrees: rotated), for: .normal) }
+                
+                if let color = color
+                { tintColor = color }
                 
             case .image(let img): setImage(img, for: .normal)
-            case .asset(let img, let color):
+            case .asset(let img, let color, let rotated):
                 setImage(img.image, for: .normal)
-                if let color = color { tintColor = color }
+                
+                if let rotated = rotated
+                { setImage(img.image?.rotate(degrees: rotated), for: .normal) }
+                
+                if let color = color
+                { tintColor = color }
                 
             case .insets(let insets): imageEdgeInsets = insets
             case .numberOfLines(let lines): titleLabel?.numberOfLines = lines

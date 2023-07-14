@@ -60,12 +60,21 @@ open class RoundImageView: UIImageView, Attributed {
         for attribute in attributes {
             switch attribute {
             case .image(let img): image = img
-            case .icon(let asset, let color):
+            case .icon(let asset, let color, let rotated):
                 image = asset.image
-                tintColor = color
                 
-            case .asset(let img, let color):
+                if let rotated = rotated
+                { image = asset.image?.rotate(degrees: rotated) }
+                
+                if let color = color
+                { tintColor = color }
+                
+            case .asset(let img, let color, let rotated):
                 image = img.image
+                
+                if let rotated = rotated
+                { image = img.image?.rotate(degrees: rotated) }
+                
                 if let color = color
                 { tintColor = color }
                 
@@ -140,12 +149,21 @@ open class RoundIconView: RoundView {
                 iconHeight.constant = size.height
                 iconWidth.constant = size.width
                 
-            case .icon(let img, let color):
+            case .icon(let img, let color, let rotated):
                 iconView.image = img.image
-                iconView.tintColor = color
                 
-            case .asset(let img, let color):
+                if let rotated = rotated
+                { iconView.image = img.image?.rotate(degrees: rotated) }
+                
+                if let color = color
+                { iconView.tintColor = color }
+                
+            case .asset(let img, let color, let rotated):
                 iconView.image = img.image
+                
+                if let rotated = rotated
+                { iconView.image = img.image?.rotate(degrees: rotated) }
+                
                 if let color = color
                 { iconView.tintColor = color }
                 

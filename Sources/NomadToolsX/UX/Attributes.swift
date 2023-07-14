@@ -54,9 +54,9 @@ public enum Attribute {
     case padding(top: CGFloat, right: CGFloat, bottom: CGFloat, left: CGFloat)
     
     /// UIImageView
-    case icon(Icon, UIColor? = Nomad.theme.onBackground)
+    case icon(Icon, UIColor? = Nomad.theme.onBackground, rotated: Float? = nil)
     case image(UIImage?)
-    case asset(Asset, color: UIColor? = nil)
+    case asset(Asset, UIColor? = nil, rotated: Float? = nil)
     case contentMode(UIView.ContentMode)
     case tintColor(UIColor)
     

@@ -47,13 +47,21 @@ public class ImageView: UIImageView, Attributed {
         for attribute in attributes {
             switch attribute {
             case .image(let img): image = img
-            case .asset(let asset, let color):
+            case .asset(let asset, let color, let rotated):
                 image = asset.image
+                
+                if let rotated = rotated
+                { image = asset.image?.rotate(degrees: rotated) }
+                
                 if let color = color
                 { tintColor = color }
                 
-            case .icon(let icon, let color):
+            case .icon(let icon, let color, let rotated):
                 image = icon.image
+                
+                if let rotated = rotated
+                { image = icon.image?.rotate(degrees: rotated) }
+                
                 tintColor = color
                 
             case .contentMode(let mode):

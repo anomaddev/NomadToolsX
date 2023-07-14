@@ -85,9 +85,14 @@ open class IconInput: UITextField, Attributed {
             case .keyboard(let type): keyboardType = type
             case .autocorrection(let auto): autocorrectionType = auto
             case .capitalization(let cap): autocapitalizationType = cap
-            case .icon(let image, let color):
+            case .icon(let image, let color, let rotated):
                 icon.image = image.image
-                icon.tintColor = color
+                
+                if let rotated = rotated
+                { icon.image = icon.image?.rotate(degrees: rotated) }
+                
+                if let color = color
+                { icon.tintColor = color }
                 
             case .padding(let top, let right, let bottom, let left):
                 padding = UIEdgeInsets(top: top, left: left, bottom: bottom, right: right)

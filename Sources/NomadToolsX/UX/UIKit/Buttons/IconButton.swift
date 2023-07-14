@@ -94,9 +94,15 @@ open class IconButton: NomadView {
                 
             case .image(let img): icon.image = img
                 
-            case .icon(let i, let clr):
+            case .icon(let i, let clr, let rot):
                 icon.image = i.image
-                icon.tintColor = clr
+                
+                if let rot = rot
+                { icon.image = i.image?.rotate(degrees: rot) }
+                
+                if let clr = clr
+                { icon.tintColor = clr }
+                
                 image = i
                 
             case .text(let str): text = str
