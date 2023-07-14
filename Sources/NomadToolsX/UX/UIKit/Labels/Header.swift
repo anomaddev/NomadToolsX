@@ -8,7 +8,7 @@
 import UIKit
 import Cartography
 
-public class Header: UILabel, Attributed {
+open class Header: UILabel, Attributed {
     
     private var padding: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     public var defaultAttributes: [Attribute] = [
