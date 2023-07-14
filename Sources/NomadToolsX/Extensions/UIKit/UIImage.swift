@@ -27,7 +27,7 @@ public extension UIImage {
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return newImage
+        return newImage?.withRenderingMode(.alwaysTemplate)
     }
     
     func rotate(degrees: Float) -> UIImage? {
