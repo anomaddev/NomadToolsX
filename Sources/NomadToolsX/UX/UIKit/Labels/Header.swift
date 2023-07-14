@@ -106,7 +106,7 @@ open class Header: UILabel, Attributed {
         return CGSize(width: width, height: heigth)
     }
     
-    required init?(coder: NSCoder)
+    required public init?(coder: NSCoder)
     { super.init(coder: coder) }
     
     // STYLING:
