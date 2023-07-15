@@ -8,9 +8,15 @@
 import UIKit
 
 public extension UILabel {
+    /// Animate a change of text on a `UILabel`
+    ///
+    /// - parameter text: The `String` of text that we want to change the label to.
+    /// - parameter durationOut: A `Double` value for the fade out animation duration in seconds.
+    /// - parameter durationIn: A `Double` value for the fade in animation duration in seconds.
+    ///
     func changeTo(text: String? = nil,
-                durationOut: Double! = 0.25,
-                durationIn: Double! = 0.4) {
+                  durationOut: Double! = 0.25,
+                  durationIn: Double! = 0.4) {
         UIView.animate(withDuration: durationOut, animations: {
             self.alpha = 0
         }) { _ in
