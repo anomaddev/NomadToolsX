@@ -69,15 +69,21 @@ public extension UIView {
         }
     }
     
-    /// Animations
-    func shake() {
-        let animation = CABasicAnimation(keyPath: "shake_view")
-        animation.duration = 0.07
-        animation.repeatCount = 4
+    /// Shake a `UIView` over a given duration and repeating a given number of times
+    ///
+    /// - parameter duration: A `Double` value to represent the duration of the shake motion in seconds
+    /// - parameter repeat: a `Float` value to represent the number of shake motions repeated
+    ///
+    func shake(duration timeDuration: Double = 0.07,
+               repeat countRepeat: Float = 3,
+               xDist offset: CGFloat = 5) {
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = timeDuration
+        animation.repeatCount = countRepeat
         animation.autoreverses = true
-        animation.fromValue = NSValue(cgPoint: CGPoint(x: self.center.x - 5, y: self.center.y))
-        animation.toValue = NSValue(cgPoint: CGPoint(x: self.center.x + 5, y: self.center.y))
-        self.layer.add(animation, forKey: "shake_view")
+        animation.fromValue = NSValue(cgPoint: CGPoint(x: self.center.x - offset, y: self.center.y))
+        animation.toValue = NSValue(cgPoint: CGPoint(x: self.center.x + offset, y: self.center.y))
+        self.layer.add(animation, forKey: "position")
     }
     
     func fadeOut(with duration: Double! = 0.25) {
