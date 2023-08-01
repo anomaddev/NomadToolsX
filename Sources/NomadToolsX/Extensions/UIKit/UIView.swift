@@ -135,8 +135,9 @@ public extension UIView {
         constrain(self)
         { theview in
             let superview = theview.superview!
-            theview.center ~== superview.center
             theview.left ~== superview.left + padding.left
+            theview.right ~== superview.right - padding.right
+            theview.top ~== superview.top + padding.top
             theview.bottom ~== superview.bottom - padding.bottom
         }
         
