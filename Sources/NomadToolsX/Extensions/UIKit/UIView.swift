@@ -118,7 +118,7 @@ public extension UIView {
     }
     
     /**
-     This function adds the view, on which we call the function, to a specified parent view and afixes the constrains to the size of the parent view.
+     This function adds the view, on which we call the function, to a specified parent view controller and afixes the constrains to the size of the parent view's margins.
     
      ### Usage Example: ###
      ```swift
@@ -128,8 +128,35 @@ public extension UIView {
         child.fitTo(parent)
      ```
      
-     - parameter view: The `UIView` that you want to add this child view on to
+     - parameter controller: The `UIViewController` that you want to add this child view on to
     */
+    func fitTo(_ controller: UIViewController, padding: UIEdgeInsets! = .zero) {
+        controller.view.add(self)
+        constrain(self)
+        { theview in
+            let superview = theview.superview!
+            theview.left ~== superview.left + padding.left
+            theview.right ~== superview.right - padding.right
+            theview.top ~== superview.topMargin + padding.top
+            theview.bottom ~== superview.bottomMargin - padding.bottom
+        }
+        
+        controller.view.layoutIfNeeded()
+    }
+    
+    /**
+     This function adds the view, on which we call the function, to a specified parent view and afixes the constrains to the size of the parent view.
+     
+     ### Usage Example: ###
+     ```swift
+     let child = UIView()
+     let parent = UIView()
+     
+     child.fitTo(parent)
+     ```
+     
+     - parameter view: The `UIView` that you want to add this child view on to
+     */
     func fitTo(_ view: UIView, padding: UIEdgeInsets! = .zero) {
         view.add(self)
         constrain(self)
