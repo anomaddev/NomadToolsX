@@ -63,6 +63,7 @@ open class Button: UIButton, Attributed {
                 
             case .insets(let insets): imageEdgeInsets = insets
             case .numberOfLines(let lines): titleLabel?.numberOfLines = lines
+            case .tintColor(let color): tintColor = color
                 
             default: break
             }
