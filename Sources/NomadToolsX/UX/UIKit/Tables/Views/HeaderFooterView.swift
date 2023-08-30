@@ -30,6 +30,14 @@ open class HeaderFooterView: UITableViewHeaderFooterView {
     public static func dequeue(on table: UITableView) -> HeaderFooterView?
     { return table.dequeueReusableHeaderFooterView(withIdentifier: id) as? HeaderFooterView }
     
+    override open func prepareForReuse() {
+        super.prepareForReuse()
+        row.arrangedSubviews.forEach {
+            row.removeArrangedSubview($0)
+            $0.removeFromSuperview()
+        }
+    }
+    
     open func layout(title: String? = nil,
                      subtitle: String? = nil,
                      insets: UIEdgeInsets? = .surrounding(vertical: 5, horizontal: 15),
