@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class ImageView: UIImageView, Attributed {
+open class ImageView: UIImageView, Attributed {
     public var defaultAttributes: [Attribute] = [
         .contentMode(.scaleAspectFit)
     ]
@@ -75,7 +75,7 @@ public class ImageView: UIImageView, Attributed {
         }
     }
     
-    required init?(coder: NSCoder)
+    required public init?(coder: NSCoder)
     { super.init(coder: coder) }
 }
 
