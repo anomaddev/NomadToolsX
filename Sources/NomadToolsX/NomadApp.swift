@@ -78,7 +78,11 @@ open class NomadApp: UIResponder, UIApplicationDelegate {
             
             try run(options: launchOptions, on: application)
             return true
-        } catch { fatalError() } // THROW:
+        } catch {
+            print(error.localizedDescription)
+            print()
+            fatalError()
+        } // THROW:
     }
     
     public func setWindow(with root: UIViewController) throws {
