@@ -9,6 +9,8 @@
 import UIKit
 import MapKit
 
+import NomadUtilities
+
 // MARK: MKMapView
 public extension MKMapView {
     // Auto Zoom Max Overlays Shown

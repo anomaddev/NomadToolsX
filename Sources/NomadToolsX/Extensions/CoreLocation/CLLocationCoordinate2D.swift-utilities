@@ -8,6 +8,8 @@
 import Foundation
 import CoreLocation
 
+import NomadUtilities
+
 public extension CLLocationCoordinate2D {
     func haversine(to coord: CLLocationCoordinate2D,
                    radius: Double = 6367444.7) -> Distance {
