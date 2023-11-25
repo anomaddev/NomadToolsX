@@ -10,6 +10,7 @@ import UIKit
 
 // Utilities
 import Cartography
+import NomadUtilities
 
 public protocol AuthStateDelegate {
     func run(login: Social)

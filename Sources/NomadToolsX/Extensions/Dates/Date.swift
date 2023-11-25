@@ -10,6 +10,7 @@ import CoreLocation
 
 // Utilities
 import SwiftDate
+import NomadUtilities
 
 public extension Date {
     
