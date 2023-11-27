@@ -13,6 +13,10 @@ import CryptoKit
 // MARK: Statement
 protocol Statement {}
 
+public extension Bundle {
+    static let NomadTools = Bundle.module
+}
+
 final public class Nomad {
     
     //    static let resourceBundle: Bundle = {
