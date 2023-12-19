@@ -62,7 +62,4 @@ open class RouteController: FAPanelController {
         
         view.layoutIfNeeded()
     }
-    
-    required public init?(coder: NSCoder)
-    { super.init(coder: coder) }
 }
