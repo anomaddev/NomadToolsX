@@ -24,13 +24,12 @@ open class RouteController: FAPanelController {
     public var rightMenuWidth: CGFloat  = UIScreen.main.bounds.width * 3/5
     { didSet { configs.rightPanelWidth = rightMenuWidth }}
     
-    override public init() {
-        super.init()
+    override func viewDidLoad() {
+        super.viewDidLoad()
         setup()
     }
     
     private func setup() {
-        view.backgroundColor = .white
         configs.colorForTapView = UIColor.black.withAlphaComponent(0.1)
         configs.shouldAnimateWithPan = true
         configs.leftPanelWidth = leftMenuWidth
@@ -50,6 +49,7 @@ open class RouteController: FAPanelController {
         leftPanelPosition = .front
         rightPanelPosition = .back
         
+        view.backgroundColor = .white
         view.add(activitydot)
         constrain(activitydot)
         { view in
@@ -59,6 +59,8 @@ open class RouteController: FAPanelController {
             view.height ~== 80
             view.width ~== view.height
         }
+        
+        view.layoutIfNeeded()
     }
     
     required public init?(coder: NSCoder)
