@@ -24,7 +24,7 @@ open class RouteController: FAPanelController {
     public var rightMenuWidth: CGFloat  = UIScreen.main.bounds.width * 3/5
     { didSet { configs.rightPanelWidth = rightMenuWidth }}
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         setup()
     }
