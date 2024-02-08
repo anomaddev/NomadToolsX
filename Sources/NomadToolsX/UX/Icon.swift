@@ -38,6 +38,7 @@ public enum Icon: String, CaseIterable, Asset {
     
     case pause
     case pencil
+    case play
     case plus
     
     case qrcode
