@@ -15,7 +15,7 @@ import NVActivityIndicatorView
 
 open class RouteController: FAPanelController {
     
-    static var defaultConfig: FAPanelConfigurations = {
+    public static var defaultConfig: FAPanelConfigurations = {
         var configs = FAPanelConfigurations()
         configs.colorForTapView = UIColor.black.withAlphaComponent(0.1)
         configs.shouldAnimateWithPan = true
