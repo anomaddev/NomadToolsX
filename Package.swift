@@ -21,7 +21,7 @@ let package = Package(
         .package(url: "https://github.com/anomaddev/Cartography.git", .upToNextMajor(from: "4.0.0")),
         .package(url: "https://github.com/malcommac/SwiftDate", .upToNextMajor(from: "7.0.0")),
         .package(url: "https://github.com/ninjaprox/NVActivityIndicatorView.git", .upToNextMajor(from: "5.0.0")),
-        .package(url: "https://github.com/fahidattique55/FAPanels.git", .upToNextMajor(from: "2.0.0")),
+        .package(url: "https://github.com/anomaddev/FAPanels.git", branch: "master"),
         .package(url: "https://github.com/Skyscanner/SkyFloatingLabelTextField.git", .upToNextMajor(from: "4.0.0")),
         .package(url: "https://github.com/Yummypets/YPImagePicker.git", .upToNextMajor(from: "5.0.0")),
         .package(url: "https://github.com/huri000/SwiftEntryKit.git", .upToNextMajor(from: "2.0.0")),
