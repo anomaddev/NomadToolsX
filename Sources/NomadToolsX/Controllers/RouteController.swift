@@ -15,25 +15,12 @@ import NVActivityIndicatorView
 
 open class RouteController: FAPanelController {
     
-    public var activityoffset: NSLayoutConstraint!
-    public lazy var activitydot: ActivityDot = ActivityDot()
-    
-    public var leftMenuWidth: CGFloat   = (UIScreen.main.bounds.width / 2) + 50
-    { didSet { configs.leftPanelWidth = leftMenuWidth }}
-    
-    public var rightMenuWidth: CGFloat  = UIScreen.main.bounds.width * 3/5
-    { didSet { configs.rightPanelWidth = rightMenuWidth }}
-    
-    override open func viewDidLoad() {
-        super.viewDidLoad()
-        setup()
-    }
-    
-    private func setup() {
+    static var defaultConfig: FAPanelConfigurations = {
+        var configs = FAPanelConfigurations()
         configs.colorForTapView = UIColor.black.withAlphaComponent(0.1)
         configs.shouldAnimateWithPan = true
-        configs.leftPanelWidth = leftMenuWidth
-        configs.rightPanelWidth = rightMenuWidth
+        configs.leftPanelWidth = 300
+        configs.rightPanelWidth = 200
         configs.resizeLeftPanel = true
         configs.resizeRightPanel = true
         configs.canLeftSwipe = false
@@ -46,9 +33,42 @@ open class RouteController: FAPanelController {
         configs.unloadLeftPanel = false
         configs.unloadRightPanel = false
         configs.pusheSidePanels = false
+        return configs
+    }()
+    
+    public var activityoffset: NSLayoutConstraint!
+    public lazy var activitydot: ActivityDot = ActivityDot()
+    
+//    public var leftMenuWidth: CGFloat   = (UIScreen.main.bounds.width / 2) + 50
+//    { didSet { configs.leftPanelWidth = leftMenuWidth }}
+//    
+//    public var rightMenuWidth: CGFloat  = UIScreen.main.bounds.width * 3/5
+//    { didSet { configs.rightPanelWidth = rightMenuWidth }}
+    
+    init(withConfig configs: FAPanelConfigurations) {
+        super.init()
+        self.configs = configs
         leftPanelPosition = .front
         rightPanelPosition = .back
-        
+    }
+    
+    override public init() {
+        super.init()
+        defaultSetup()
+    }
+    
+    override open func viewDidLoad() {
+        super.viewDidLoad()
+        layoutActivity()
+    }
+    
+    private func defaultSetup() {
+        configs = Self.defaultConfig
+        leftPanelPosition = .front
+        rightPanelPosition = .back
+    }
+    
+    private func layoutActivity() {
         view.backgroundColor = .white
         view.add(activitydot)
         constrain(activitydot)
@@ -62,4 +82,7 @@ open class RouteController: FAPanelController {
         
         view.layoutIfNeeded()
     }
+    
+    required public init?(coder: NSCoder)
+    { super.init(coder: coder) }
 }
