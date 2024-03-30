@@ -9,6 +9,7 @@
 import UIKit
 
 // Utilities
+import NomadUI
 import Cartography
 
 open class ButtonCell: TableCell {
@@ -18,8 +19,8 @@ open class ButtonCell: TableCell {
     public lazy var button: Button = Button([
         .setHeight(40),
         .borderWidth(2),
-        .borderColor(.primary),
-        .textColor(.primary),
+        .borderColor(.primary.color),
+        .textColor(.primary.color),
         .cornerRadius(5)
     ])
     
@@ -62,11 +63,11 @@ open class ButtonCell: TableCell {
     }
     
     public enum Style {
-        case Bordered(color: UIColor! = .primary,
+        case Bordered(color: UIColor! = .primary.color,
                       borderWidth: CGFloat! = 2,
                       radius: CGFloat! = 5)
         
-        case Filled(color: UIColor! = .primary,
+        case Filled(color: UIColor! = .primary.color,
                     textColor: UIColor! = .onPrimary,
                     radius: CGFloat! = 5)
     }

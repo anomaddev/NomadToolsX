@@ -9,6 +9,7 @@
 import UIKit
 
 // Utilities
+import NomadUI
 import Cartography
 
 open class Input: UITextField, Attributed {
@@ -116,7 +117,7 @@ open class TitledInput: NomadView {
     public lazy var input: Input = Input([
         .padding(top: 0, right: 15, bottom: 0, left: 15),
         .addShadow(opacity: 0.25, radius: 2, offset: .square(1)),
-        .backgroundColor(.background)
+        .backgroundColor(.background.color)
     ])
     
     private var _centered: NSLayoutConstraint!
@@ -151,7 +152,7 @@ open class TitledInput: NomadView {
             input.setAttributes([
                 .font(.Regular, size: 16),
                 .textColor(.onBackground),
-                .backgroundColor(.background),
+                .backgroundColor(.background.color),
                 .cornerRadius(0),
                 .padding(top: 0, right: 20, bottom: 0, left: 20),
             ])

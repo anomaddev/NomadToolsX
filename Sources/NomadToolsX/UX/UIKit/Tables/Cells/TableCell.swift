@@ -9,6 +9,7 @@
 import UIKit
 
 // Utilities
+import NomadUI
 import Cartography
 import SwipeCellKit
 
@@ -26,7 +27,7 @@ open class TableCell: UITableViewCell {
     
     open func layout(with model: TableCellModel) {
         selectionStyle = .none
-        backgroundColor = .background
+        backgroundColor = .background.color
     }
 }
 
@@ -44,7 +45,7 @@ open class SwipeableTableCell: SwipeTableViewCell {
     
     open func layout(with model: TableCellModel) {
         selectionStyle = .none
-        backgroundColor = .background
+        backgroundColor = .background.color
     }
 }
 

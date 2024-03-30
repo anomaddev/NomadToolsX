@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "NomadToolsX",
     platforms: [
-        .iOS(.v13)
+        .iOS(.v14)
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
@@ -26,8 +26,8 @@ let package = Package(
         .package(url: "https://github.com/Yummypets/YPImagePicker.git", .upToNextMajor(from: "5.0.0")),
         .package(url: "https://github.com/huri000/SwiftEntryKit.git", .upToNextMajor(from: "2.0.0")),
         .package(url: "https://github.com/SwipeCellKit/SwipeCellKit.git", .upToNextMajor(from: "2.0.0")),
-//        .package(url: "https://github.com/anomaddev/NomadUtilities.git", branch: "main")
-        .package(path: "../NomadUtilities")
+        .package(path: "../NomadUtilities"),
+        .package(path: "../NomadUI")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -44,12 +44,10 @@ let package = Package(
                 .product(name: "YPImagePicker", package: "YPImagePicker"),
                 .product(name: "SwiftEntryKit", package: "SwiftEntryKit"),
                 .product(name: "SwipeCellKit", package: "SwipeCellKit"),
-                .product(name: "NomadUtilities", package: "NomadUtilities")
+                .product(name: "NomadUtilities", package: "NomadUtilities"),
+                .product(name: "NomadUI", package: "NomadUI"),
             ]
-        ),
-        .testTarget(
-            name: "NomadToolsXTests",
-            dependencies: ["NomadToolsX"]
-        ),
+        )
     ]
 )
+

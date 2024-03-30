@@ -97,9 +97,6 @@ public extension Date {
     var since1970: Double
     { timeIntervalSince1970 }
     
-    var seconds: Int
-    { timeIntervalSince1970.int }
-    
     var year: Int
     { Calendar.current.component(.year, from: self) }
     

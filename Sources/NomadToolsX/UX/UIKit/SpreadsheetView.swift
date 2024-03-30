@@ -44,7 +44,7 @@ public class SpreadsheetView: UIView {
     
     public init() {
         super.init(frame: .zero)
-        backgroundColor = .surface
+        backgroundColor = .clear
     }
     
     public func reloadSheet() {
@@ -95,7 +95,7 @@ public class SpreadsheetView: UIView {
                 }
             }()
             
-            table.layer.borderColor = .onBackground
+            table.layer.borderColor = UIColor.neutral.outline.cgColor
             table.layer.borderWidth = 2
             table.delegate = self
             table.dataSource = self
@@ -130,7 +130,7 @@ public class SpreadsheetCell: UITableViewCell {
     public func setup(_ text: String? = nil) {
         backgroundColor = .clear
         selectionStyle = .none
-        value.layer.borderColor = .onBackground
+        value.layer.borderColor = UIColor.neutral.outline.cgColor
         value.layer.borderWidth = 2
         value.text = text
         value.adjustsFontSizeToFitWidth = true

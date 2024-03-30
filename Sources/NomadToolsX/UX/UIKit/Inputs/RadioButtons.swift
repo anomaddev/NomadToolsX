@@ -9,6 +9,7 @@
 import UIKit
 
 // Utilities
+import NomadUI
 import Cartography
 
 protocol RadioButtonDelegate {
@@ -45,7 +46,7 @@ open class RadioButtons: UIView {
         for (i, item) in items.enumerated() {
             let gesture = UITapGestureRecognizer(target: self, action: #selector(tapped))
             let radio = RadioButton(title: item)
-            radio.button.backgroundColor = i == active ? .primary : .clear
+            radio.button.backgroundColor = i == active ? .primary.color : .clear
             radio.tag = i
             radio.addGestureRecognizer(gesture)
             column.addArrangedSubview(radio)
@@ -58,7 +59,7 @@ open class RadioButtons: UIView {
             guard let radio = radio as? RadioButton
             else { throw NSError() } // THROW:
             active = index
-            radio.button.backgroundColor = index == radio.tag ? .primary : .clear
+            radio.button.backgroundColor = index == radio.tag ? .primary.color : .clear
         }
         layoutIfNeeded()
     }
@@ -67,7 +68,7 @@ open class RadioButtons: UIView {
         active = sender.view?.tag ?? 0
         for button in column.subviews {
             if let btn = button as? RadioButton
-            { btn.button.backgroundColor = sender.view?.tag == btn.tag ? .primary : .clear }
+            { btn.button.backgroundColor = sender.view?.tag == btn.tag ? .primary.color : .clear }
         }
     }
     
@@ -88,7 +89,7 @@ open class RadioButton: UIView {
         .setWidth(15),
         .setHeight(15),
         .cornerRadius(7.5),
-        .borderColor(.primary),
+        .borderColor(.primary.color),
         .borderWidth(2)
     ])
     

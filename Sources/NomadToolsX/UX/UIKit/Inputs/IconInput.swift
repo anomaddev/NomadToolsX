@@ -9,14 +9,14 @@
 import UIKit
 
 // Utilities
-
+import NomadUI
 import Cartography
 
 open class IconInput: UITextField, Attributed {
     public var defaultAttributes: [Attribute] = [
         .font(.Medium, size: 16),
         .textColor(.onBackground),
-        .backgroundColor(.background)
+        .backgroundColor(.background.color)
     ]
     
     private var _offset: NSLayoutConstraint!

@@ -7,6 +7,7 @@
 
 import UIKit
 
+import NomadUI
 import Cartography
 
 open class RoundView: NomadView {
@@ -196,7 +197,7 @@ public class FacebookIconView: RoundIconView {
     public override init(_ attributes: [Attribute],
                          selected sattributes: [Attribute]? = nil) {
         super.init(attributes)
-        backgroundColor = .background
+        backgroundColor = .background.color
         iconView.image = UIImage(named: "facebook_colored")
     }
     
