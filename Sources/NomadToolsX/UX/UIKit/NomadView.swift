@@ -6,6 +6,9 @@
 //
 
 import UIKit
+
+// Utilities
+import NomadUI
 import Cartography
 
 open class NomadView: UIView, Attributed {
@@ -49,7 +52,7 @@ open class BlankView: NomadView {
 open class Separator: UIView {
     
     lazy var line: BlankView = BlankView([
-        .backgroundColor(.secondary),
+        .backgroundColor(.secondary.color),
         .cornerRadius(1)
     ])
     
@@ -72,7 +75,7 @@ open class Separator: UIView {
                 vertical: Bool! = false) {
         super.init(frame: .zero)
         line.alpha = alpha
-        backgroundColor = .background
+        backgroundColor = .background.color
         add(line)
         constrain(line)
         { line in

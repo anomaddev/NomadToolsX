@@ -18,9 +18,9 @@ import AuthenticationServices
 // Utilities
 import Cartography
 import NVActivityIndicatorView
-// import IQKeyboardManagerSwift
-// import SwiftEntryKit
-// import LBTATools
+
+import NomadUtilities
+import NomadUI
 
 open class BasicController: UIViewController, UITextFieldDelegate {
     
@@ -40,7 +40,7 @@ open class BasicController: UIViewController, UITextFieldDelegate {
     public var opaque: Bool = true {
         didSet {
             if opaque { view.backgroundColor = .clear }
-            else { view.backgroundColor = .background }
+            else { view.backgroundColor = UIColor.background.color }
         }
     }
     
@@ -67,10 +67,10 @@ open class BasicController: UIViewController, UITextFieldDelegate {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .background
+        view.backgroundColor = .background.color
         
-        if #available(iOS 13.0, *)
-        { overrideUserInterfaceStyle = .light }
+//        if #available(iOS 13.0, *)
+//        { overrideUserInterfaceStyle = .light }
         
         view.add(activitydot)
         constrain(activitydot)

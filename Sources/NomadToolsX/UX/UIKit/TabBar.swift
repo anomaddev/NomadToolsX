@@ -9,6 +9,7 @@
 import UIKit
 
 // Utilities
+import NomadUI
 import Cartography
 
 public protocol TabBarDelegate {
@@ -29,7 +30,7 @@ open class TabBar: UIView {
         .cornerRadius(2),
         .setHeight(4),
         .setWidth(100),
-        .backgroundColor(.primary)
+        .backgroundColor(.primary.color)
     ])
     
     public var delegate: TabBarDelegate?

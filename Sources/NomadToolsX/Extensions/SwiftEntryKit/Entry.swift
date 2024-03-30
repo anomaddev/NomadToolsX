@@ -19,8 +19,8 @@ public enum Entry {
             var attributes = EKAttributes.bottomFloat
             attributes.hapticFeedbackType = .success
             attributes.displayDuration = .infinity
-            attributes.entryBackground = .color(color: .init(.background))
-            attributes.screenBackground = .color(color: .init(UIColor.secondary.withAlphaComponent(0.4)))
+            attributes.entryBackground = .color(color: .init(.background.color))
+            attributes.screenBackground = .color(color: .init(.background.onColor.withAlphaComponent(0.2)))
             attributes.shadow = .active(
                 with: .init(
                     color: .black,
@@ -80,7 +80,7 @@ public enum Entry {
             var attributes = EKAttributes.bottomFloat
             attributes.hapticFeedbackType = .success
             attributes.displayDuration = .infinity
-            attributes.entryBackground = .color(color: .init(.background))
+            attributes.entryBackground = .color(color: .init(.background.color))
             attributes.screenBackground = .color(color: .init(.dimmedLightBackground))
             attributes.shadow = .active(
                 with: .init(
