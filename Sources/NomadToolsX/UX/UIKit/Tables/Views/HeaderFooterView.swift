@@ -51,6 +51,18 @@ open class HeaderFooterView: UITableViewHeaderFooterView {
         
         layoutIfNeeded()
     }
+    
+    open func centeredLayout(
+        title: String? = nil,
+        color: UIColor! = .background.onColor,
+        style header: Header.HeaderStyle! = .M(size: 12)
+    ) {
+        titleView = Header(title, style: header, alignment: .center, color: color, height: 17)
+        row.addArrangedSubview(titleView)
+        row.fitTo(self, padding: .surrounding(vertical: 5, horizontal: 15))
+        
+        layoutIfNeeded()
+    }
 }
 
 public protocol HeaderFooterViewModel: Codable {

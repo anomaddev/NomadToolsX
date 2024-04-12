@@ -15,7 +15,7 @@ import NVActivityIndicatorView
 open class ActivityDot: UIView {
     
     public lazy var ping: NVActivityIndicatorView = {
-        let view = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 100, height: 100),
+        let view = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 125, height: 125),
                                            type: .ballClipRotatePulse,
                                            color: Nomad.theme.onBackground,
                                            padding: 20)
@@ -23,7 +23,7 @@ open class ActivityDot: UIView {
     }()
     
     public init() {
-        super.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        super.init(frame: CGRect(x: 0, y: 0, width: 125, height: 125))
         backgroundColor = Nomad.theme.background
         layer.masksToBounds = true
         layer.cornerRadius = 40
@@ -35,7 +35,7 @@ open class ActivityDot: UIView {
         { ping in
             let superview = ping.superview!
             ping.center ~== superview.center
-            ping.height ~== 80
+            ping.height ~== 100
             ping.width ~== ping.height
         }
     }

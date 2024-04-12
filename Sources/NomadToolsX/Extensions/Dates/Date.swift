@@ -94,9 +94,6 @@ public extension Date {
         return calendar.dateComponents(Set(components), from: self)
     }
     
-    var since1970: Double
-    { timeIntervalSince1970 }
-    
     var year: Int
     { Calendar.current.component(.year, from: self) }
     

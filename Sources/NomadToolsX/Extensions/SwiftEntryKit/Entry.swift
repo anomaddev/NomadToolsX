@@ -62,7 +62,7 @@ public enum Entry {
                 width: .constant(value: UIScreen.main.minEdge),
                 height: .intrinsic
             )
-            attributes.statusBar = .dark
+            attributes.statusBar = .inferred
             attributes.displayMode = .dark
             attributes.entranceAnimation = .init(
                 translate: .init(
