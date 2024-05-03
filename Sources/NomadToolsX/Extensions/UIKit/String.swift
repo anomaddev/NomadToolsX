@@ -55,13 +55,6 @@ public extension String {
         return dateFormatter.date(from: self)
     }
     
-    /// functions
-    func attributed(attributes: [NSAttributedString.Key: Any]) -> NSAttributedString
-    { NSAttributedString(string: self, attributes: attributes) }
-    
-    var attributed: NSAttributedString
-    { NSAttributedString(string: self) }
-    
     func dup(_ int: Int! = 1) -> [String] {
         guard int > 1 else { return [self] }
         var duplicates: [String] = []
