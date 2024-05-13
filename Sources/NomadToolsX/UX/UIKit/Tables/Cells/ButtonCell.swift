@@ -68,7 +68,7 @@ open class ButtonCell: TableCell {
                       radius: CGFloat! = 5)
         
         case Filled(color: UIColor! = .primary.color,
-                    textColor: UIColor! = .onPrimary,
+                    textColor: UIColor! = .primary.onColor,
                     radius: CGFloat! = 5)
     }
 }

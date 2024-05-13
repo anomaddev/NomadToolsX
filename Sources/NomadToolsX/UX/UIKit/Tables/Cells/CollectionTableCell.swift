@@ -24,7 +24,7 @@ class CollectionTableCell: TableCell {
     lazy var seeall: Button = Button([
         .font(.Medium, size: 14),
         .text("See All"),
-        .textColor(.onBackground)
+        .textColor(.background.onColor)
     ])
       
     public var layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()

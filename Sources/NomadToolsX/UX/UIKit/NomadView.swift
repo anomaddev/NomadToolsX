@@ -13,7 +13,7 @@ import Cartography
 
 open class NomadView: UIView, Attributed {
     public var defaultAttributes: [Attribute] = [
-        .backgroundColor(Nomad.theme.background),
+        .backgroundColor(.background.color),
         .borderWidth(0),
         .borderColor(.clear),
         .interaction(true)

@@ -8,6 +8,8 @@
 // Core iOS
 import UIKit
 
+import NomadUI
+
 // Utilities
 import Cartography
 

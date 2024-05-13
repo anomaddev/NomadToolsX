@@ -15,7 +15,7 @@ import Cartography
 open class IconInput: UITextField, Attributed {
     public var defaultAttributes: [Attribute] = [
         .font(.Medium, size: 16),
-        .textColor(.onBackground),
+        .textColor(.background.onColor),
         .backgroundColor(.background.color)
     ]
     

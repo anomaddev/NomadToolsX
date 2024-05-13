@@ -93,7 +93,7 @@ open class RadioButton: UIView {
         .borderWidth(2)
     ])
     
-    lazy var label: Header = Header(style: .H4, color: .onBackground)
+    lazy var label: Header = Header(style: .H4, color: .background.onColor)
     
     public init(title: String) {
         super.init(frame: .zero)

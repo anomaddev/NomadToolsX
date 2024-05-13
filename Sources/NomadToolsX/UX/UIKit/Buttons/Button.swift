@@ -15,7 +15,7 @@ open class Button: UIButton, Attributed {
     public var defaultAttributes: [Attribute] = [
         .borderWidth(0),
         .borderColor(.clear),
-        .textColor(.onBackground)
+        .textColor(.background.onColor)
     ]
     
     public var toggled: Bool! = false

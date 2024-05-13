@@ -6,6 +6,9 @@
 //
 
 import UIKit
+
+import NomadUI
+
 import Cartography
 
 open class Header: UILabel, Attributed {
@@ -16,7 +19,7 @@ open class Header: UILabel, Attributed {
         .textAlignment(.left),
         .text(nil),
         .attributed(nil),
-        .textColor(Nomad.theme.onBackground),
+        .textColor(.background.onColor),
         .resize(false),
         .minimumTextScale(0.75)
     ]

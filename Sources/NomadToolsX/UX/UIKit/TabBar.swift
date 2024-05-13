@@ -58,7 +58,7 @@ open class TabBar: UIView {
         for (i, atab) in tabs.enumerated() {
             let button = Button([
                 .font(.Medium, size: 17),
-                .textColor(.onBackground),
+                .textColor(.background.onColor),
                 .text(atab),
                 .tag(i)
             ])
